@@ -18,7 +18,8 @@
         <activity android:name=".Kartvy" />
         <activity android:name=".MainMenu" />
         <activity android:name=".NotificationSettings" />
-        <activity android:name=".ExamList"></activity>
+        <activity android:name=".ExamList" />
+        <activity android:name=".ExamInformation"></activity>
     </application>
 
 </manifest>
