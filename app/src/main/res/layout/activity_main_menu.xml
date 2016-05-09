@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.hannah.tentapp.MainMenu">
+    tools:context=".MainMenu">
 
     <Button
         android:layout_width="200dp"
@@ -18,7 +18,8 @@
         android:textColor="#fff"
         android:textStyle="bold"
         android:textSize="25dp"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/logOutButton"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -38,4 +39,17 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="Kartvy"
+        android:backgroundTint="#fd9942"
+        android:id="@+id/chooseKartvyButton"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/chooseExamButton"
+        android:layout_alignStart="@+id/chooseExamButton" />
 </RelativeLayout>
