@@ -13,29 +13,34 @@
          android:fitsSystemWindows. -->
 
     <Button
-        android:layout_width="125dp"
-        android:layout_height="69dp"
-        android:text="Tillbaka"
-        android:id="@+id/button5"
-        android:layout_gravity="left|bottom" />
-
-    <ImageButton android:id="@+id/myButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
-        android:layout_marginLeft="200dp"
-        android:padding="100dip"
-        android: android:onClick="map"
-        android:src="@drawable/mapview" />
+        android:text="Logga ut"
+        android:id="@+id/logOutButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
+    <Button
+        android:layout_width="158dp"
+        android:layout_height="128dp"
+        android:text="Öppna karta"
+        android:backgroundTint="#fd9942"
+        android:id="@+id/chooseMapButton"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_gravity="center_horizontal|top"
+
+        />
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="223dp"
+        android:layout_width="347dp"
+        android:layout_height="212dp"
         android:fitsSystemWindows="true"
         android:id="@+id/Inforuta"
-        android:layout_gravity="center_horizontal|top">
+        android:layout_gravity="center">
 
         <LinearLayout
             android:id="@+id/fullscreen_content_controls"
@@ -51,7 +56,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="47dp"
+            android:layout_height="35dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Kurskod: "
             android:id="@+id/textView"
@@ -131,12 +136,14 @@
 
     </FrameLayout>
 
-    <TextView
-        android:layout_width="290dp"
-        android:layout_height="293dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Karta till sal (klicka på kartan för att öppna kartvy)"
-        android:id="@+id/textView11"
-        android:layout_gravity="right|bottom" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tillbaka"
+        android:id="@+id/button5"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="left|bottom" />
 
 </FrameLayout>
