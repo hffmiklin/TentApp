@@ -19,11 +19,16 @@
         android:id="@+id/button5"
         android:layout_gravity="left|bottom" />
 
-    <ImageButton
-        android:layout_width="255dp"
-        android:layout_height="211dp"
-        android:id="@+id/imageButton"
-        android:layout_gravity="right|bottom" />
+    <ImageButton android:id="@+id/myButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:layout_marginLeft="200dp"
+        android:padding="100dip"
+        android: android:onClick="map"
+        android:src="@drawable/mapview" />
+
+
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -132,6 +137,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Karta till sal (klicka på kartan för att öppna kartvy)"
         android:id="@+id/textView11"
-        android:layout_gravity="center_horizontal|bottom" />
+        android:layout_gravity="right|bottom" />
 
 </FrameLayout>
