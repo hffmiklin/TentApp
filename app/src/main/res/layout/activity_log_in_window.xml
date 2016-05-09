@@ -9,36 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.hannah.tentapp.LogInWindow">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/userNameTextField"
-        android:text="Användarnamn"
-        android:layout_above="@+id/passwordTextField"
-        android:layout_alignRight="@+id/passwordTextField"
-        android:layout_alignEnd="@+id/passwordTextField"
-        android:layout_alignLeft="@+id/passwordTextField"
-        android:layout_alignStart="@+id/passwordTextField" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logga in"
-        android:id="@+id/logInButton"
-        android:layout_below="@+id/userNameTextField"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="81dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/passwordTextField"
-        android:text="Lösenord"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,6 +16,47 @@
         android:src="@mipmap/logo_gul"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/userNameTextField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Användarnamn"
+        android:layout_above="@+id/passwordTextField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/passwordTextField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:text="Lösenord"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/userNameTextField"
+        android:layout_alignEnd="@+id/userNameTextField" />
+
+    <Button
+        android:id="@+id/logInButton"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:text="Logga in"
+        android:onClick="login"
+        android:backgroundTint="#fd9942"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:layout_below="@+id/passwordTextField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="74dp"
+        android:layout_alignRight="@+id/passwordTextField"
+        android:layout_alignEnd="@+id/passwordTextField" />
+
 
 
 </RelativeLayout>
