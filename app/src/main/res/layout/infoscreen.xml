@@ -1,0 +1,149 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    tools:context="com.example.hannah.tentapp.FullscreenActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logga ut"
+        android:id="@+id/logOutButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <Button
+        android:layout_width="158dp"
+        android:layout_height="128dp"
+        android:text="Öppna karta"
+        android:backgroundTint="#fd9942"
+        android:id="@+id/chooseMapButton"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_gravity="center_horizontal|top"
+
+        />
+
+    <FrameLayout
+        android:layout_width="347dp"
+        android:layout_height="212dp"
+        android:fitsSystemWindows="true"
+        android:id="@+id/Inforuta"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Kurskod: "
+            android:id="@+id/textView"
+            android:layout_gravity="left|top" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="XXX"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal|top" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="83dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="2016-01-01"
+            android:id="@+id/textView4"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/textView5"
+            android:layout_gravity="left|center_vertical"
+            android:text="Tid:" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="87dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Datum: "
+            android:id="@+id/textView3"
+            android:layout_gravity="left|center_vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="08:30-12:30"
+            android:id="@+id/textView6"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="94dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Hus: "
+            android:id="@+id/textView7"
+            android:layout_gravity="left|bottom" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="94dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Jupiter"
+            android:id="@+id/textView8"
+            android:layout_gravity="center_horizontal|bottom" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="66dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Sal: "
+            android:id="@+id/textView9"
+            android:layout_gravity="left|bottom" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="66dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="101"
+            android:id="@+id/textView10"
+            android:layout_gravity="center_horizontal|bottom" />
+
+    </FrameLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tillbaka"
+        android:id="@+id/button5"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="left|bottom" />
+
+</FrameLayout>
