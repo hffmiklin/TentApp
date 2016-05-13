@@ -52,4 +52,6 @@
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/chooseExamButton"
         android:layout_alignStart="@+id/chooseExamButton" />
+
+
 </RelativeLayout>
