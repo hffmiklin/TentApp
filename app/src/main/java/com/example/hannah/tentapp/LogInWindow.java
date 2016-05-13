@@ -31,18 +31,12 @@ public class LogInWindow extends AppCompatActivity {
             public void onClick(View view) {
                 if (userNameField.getText().toString().equals("admin") && passwordField.getText().toString().equals("admin")) {
 
-                    Toast.makeText(getApplicationContext(), "Loggar in...",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Loggar in",Toast.LENGTH_SHORT).show();
 
-                    //This line should navigate the user to main window, getApplicationContext() was at login.this before
-                    Intent nextScreen = new Intent(view.getContext(), MainMenu.class);
-
-                   // nextScreen.putExtra("userNameTextField", userNameField.getText().toString());
-                    //Log.e("n", userNameField.getText().toString());
-                    //Should send data to the next screen
-                    //nextScreen.putExtra("name", userNameField.getText().toString());
-                    //Log.e("n", userNameField.getText());
-
-                    startActivityForResult(nextScreen, 0);
+                    String userName = String.valueOf(userNameField.getText());
+                    Intent intent = new Intent(LogInWindow.this,MainMenu.class);
+                    intent.putExtra("user_name",userName);
+                    startActivity(intent);
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Du har angett felaktigt användarid eller lösenord, försök igen.",Toast.LENGTH_SHORT).show();

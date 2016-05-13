@@ -9,7 +9,7 @@ import android.util.Log;
 
 public class MainMenu extends AppCompatActivity {
     Button exam, logOut;
-    EditText tentApp, userName;
+    TextView userName;
 
 
     @Override
@@ -17,17 +17,22 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        tentApp = (EditText) findViewById(R.id.tentAppText);
+
         exam = (Button) findViewById(R.id.chooseExamButton);
-        logOut = (Button) findViewById(R.id.logInButton);
-        userName = (EditText) findViewById(R.id.userNameField);
+        logOut = (Button) findViewById(R.id.logOutButton);
+        userName = (TextView) findViewById(R.id.userNameField);
+        Bundle extras = getIntent().getExtras();
+        String userNameString = extras.getString("user_name");
+
+        userName.setText(userNameString);
 
         logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                setResult(RESULT_OK, intent);
-                finish();
+                Toast.makeText(getApplicationContext(), "Loggar ut",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainMenu.this, LogInWindow.class));
             }
+
         });
 
         //Intent i = getIntent();
