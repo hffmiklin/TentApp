@@ -8,7 +8,7 @@ import android.widget.*;
 import android.util.Log;
 
 public class MainMenu extends AppCompatActivity {
-    Button exam, logOut;
+    Button exam, logOut, kartVy, install;
     TextView userName;
 
 
@@ -26,11 +26,49 @@ public class MainMenu extends AppCompatActivity {
 
         userName.setText(userNameString);
 
+        //Knappar för kartvy och inställningar
+        kartVy = (Button) findViewById(R.id.chooseKartvyButton);
+        install = (Button) findViewById(R.id.chooseNotisButton);
+
+
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Loggar ut",Toast.LENGTH_SHORT).show();
+
                 startActivity(new Intent(MainMenu.this, LogInWindow.class));
+                Toast.makeText(getApplicationContext(), "Du är nu utloggad.",Toast.LENGTH_SHORT).show();
+            }
+
+        });
+        //klickar på välj tenta-knappen, navigerar till lista med tentor
+        exam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(getApplicationContext(), "Visar tentor",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainMenu.this, ExamList.class));
+            }
+
+        });
+
+
+
+        //klickar på kartvy-knappen, navigerar till kartvy
+        kartVy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(getApplicationContext(), "Visar kartvyer",Toast.LENGTH_SHORT).show();
+                //TO DO Kartvy är till tillfällig skärm, ska navigeras till riktiga maps
+                startActivity(new Intent(MainMenu.this, Kartvy.class));
+            }
+
+        });
+
+        //klickar på inställning-knappen, navigerar till inställning
+        install.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(getApplicationContext(), "Visar inställningar",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainMenu.this, NotificationSettings.class));
             }
 
         });
