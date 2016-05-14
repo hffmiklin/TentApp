@@ -11,13 +11,20 @@
     tools:context="com.example.hannah.tentapp.LogInWindow">
 
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="351dp"
         android:layout_height="wrap_content"
         android:id="@+id/gulLogoImage"
         android:src="@mipmap/logo_gul"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Fyll i dina GUL-uppgifter:"
+        android:id="@+id/textView12"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"

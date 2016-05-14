@@ -9,7 +9,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.example.hannah.tentapp.ExamList">
+    tools:context="com.example.hannah.tentapp.ExamList"
+    android:background="#dd0092cc">
 
 
 

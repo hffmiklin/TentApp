@@ -8,7 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.hannah.tentapp.MainMenu">
+    tools:context=".SplashScreen"
+    android:background="#dd0092cc">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal"
@@ -21,15 +22,18 @@
             android:textSize="15dp"
             android:text="Logga ut"
             android:id="@+id/logOutButton"
-            android:layout_alignParentLeft="true"/>
+            android:layout_below="@+id/userNameField"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="namn"
             android:id="@+id/userNameField"
-            android:layout_below="@+id/tentAppText"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <!--
         <TextView
@@ -48,7 +52,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="Välj Tenta"
+        android:text="Tentamen-information"
         android:backgroundTint="#fd9942"
         android:id="@+id/chooseExamButton"
         android:textColor="#fff"
@@ -65,7 +69,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="Kartvy"
+        android:text="Hitta till tentan"
         android:backgroundTint="#fd9942"
         android:textColor="#fff"
         android:textStyle="bold"
