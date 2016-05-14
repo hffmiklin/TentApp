@@ -35,7 +35,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="Välj Tenta"
+        android:text="Välj tentamen"
         android:backgroundTint="#fd9942"
         android:id="@+id/chooseExamButton"
         android:textColor="#fff"

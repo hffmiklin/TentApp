@@ -31,7 +31,6 @@ public class LogInWindow extends AppCompatActivity {
             public void onClick(View view) {
                 if (userNameField.getText().toString().equals("admin") && passwordField.getText().toString().equals("admin")) {
 
-
                     String userName = String.valueOf(userNameField.getText());
                     Intent intent = new Intent(LogInWindow.this,MainMenu.class);
                     intent.putExtra("user_name",userName);
