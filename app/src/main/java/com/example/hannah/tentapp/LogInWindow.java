@@ -31,7 +31,6 @@ public class LogInWindow extends AppCompatActivity {
             public void onClick(View view) {
                 if (userNameField.getText().toString().equals("admin") && passwordField.getText().toString().equals("admin")) {
 
-                    Toast.makeText(getApplicationContext(), "Loggar in",Toast.LENGTH_SHORT).show();
 
                     String userName = String.valueOf(userNameField.getText());
                     Intent intent = new Intent(LogInWindow.this,MainMenu.class);

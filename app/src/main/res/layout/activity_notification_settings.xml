@@ -20,8 +20,8 @@
         android:layout_below="@+id/noticeText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/switchTentaClose"
-        android:layout_alignEnd="@+id/switchTentaClose" />
+        android:layout_alignRight="@+id/noticeText"
+        android:layout_alignEnd="@+id/noticeText" />
 
     <Switch
         android:layout_width="wrap_content"
@@ -30,12 +30,12 @@
         android:textSize="20dp"
         android:id="@+id/switchTentaClose"
         android:checked="false"
-        android:layout_below="@+id/switchTentaOpen"
+        android:layout_marginTop="70dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="50dp"
-        android:layout_alignRight="@+id/textView11"
-        android:layout_alignEnd="@+id/textView11" />
+        android:layout_below="@+id/switchTentaOpen"
+        android:layout_alignRight="@+id/switchTentaOpen"
+        android:layout_alignEnd="@+id/switchTentaOpen" />
 
     <Switch
         android:layout_width="wrap_content"
@@ -43,13 +43,13 @@
         android:text="Uppdatering av tentainformation"
         android:textSize="20dp"
         android:id="@+id/switchTentaInfo"
+        android:layout_marginTop="70dp"
         android:checked="false"
         android:layout_below="@+id/switchTentaClose"
-        android:layout_marginTop="75dp"
-        android:layout_alignRight="@+id/switchTentaClose"
-        android:layout_alignEnd="@+id/switchTentaClose"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/switchTentaOpen"
+        android:layout_alignEnd="@+id/switchTentaOpen" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -60,17 +60,9 @@
         android:gravity="center"
         android:id="@+id/noticeText"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/switchTentaOpen"
-        android:layout_alignEnd="@+id/switchTentaOpen"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Välj tillfällen du vill ha notiser om:"
-        android:id="@+id/textView11"
-        android:layout_below="@+id/noticeText"
-        android:layout_centerHorizontal="true" />
 </RelativeLayout>

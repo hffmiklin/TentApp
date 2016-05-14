@@ -28,20 +28,7 @@
             android:layout_height="wrap_content"
             android:text="namn"
             android:id="@+id/userNameField"
-            android:layout_below="@+id/tentAppText"
             android:layout_alignParentRight="true" />
-
-        <!--
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TentApp"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:id="@+id/tentAppText"
-            android:layout_alignParentRight="true" />
-
-        -->
 
     </RelativeLayout>
 
@@ -81,7 +68,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="Inställningar"
+        android:text="Notiser"
         android:backgroundTint="#fd9942"
         android:textColor="#fff"
         android:textStyle="bold"
