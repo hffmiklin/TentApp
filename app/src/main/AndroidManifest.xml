@@ -7,7 +7,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:debuggable="true">
+
+        <!-- TO DO ta bort debuggable innan release
+        http://developer.android.com/tools/device.html
+        -->
         <activity
             android:name=".LogInWindow"
             android:label="@string/app_name">

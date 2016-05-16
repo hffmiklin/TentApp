@@ -148,7 +148,7 @@ public class ExamList extends AppCompatActivity {
                 courseButtonText = courseButtonText +" "+ stringParts[j];
             }
             courseButton.setText(courseButtonText);
-            courseButton.setTextSize(20);
+            courseButton.setTextSize(18);
             GradientDrawable drawable = new GradientDrawable();
             drawable.setShape(GradientDrawable.RECTANGLE);
             drawable.setStroke(5, Color.WHITE);
