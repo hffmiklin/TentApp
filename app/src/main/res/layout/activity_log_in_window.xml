@@ -69,8 +69,8 @@
         android:layout_height="85dp"
         android:layout_marginTop="20dp"
         android:text="Logga in"
-        android:onClick="login"
-        android:backgroundTint="#fd9942"
+
+        android:background="@drawable/buttoncolor"
         android:textColor="#fff"
         android:textStyle="bold"
         android:layout_marginBottom="67dp"

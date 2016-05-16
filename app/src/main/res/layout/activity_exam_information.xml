@@ -22,7 +22,7 @@
         android:layout_height="150dp"
         android:text="Öppna karta"
         android:id="@+id/findRoomButton"
-        android:backgroundTint="#fd9942"
+        android:background="@drawable/buttoncolor"
         android:textColor="#fff"
         android:textStyle="bold"
         android:textSize="20dp"
