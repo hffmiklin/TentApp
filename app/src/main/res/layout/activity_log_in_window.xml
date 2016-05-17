@@ -69,7 +69,6 @@
         android:layout_height="85dp"
         android:layout_marginTop="20dp"
         android:text="Logga in"
-
         android:background="@drawable/buttoncolor"
         android:textColor="#fff"
         android:textStyle="bold"

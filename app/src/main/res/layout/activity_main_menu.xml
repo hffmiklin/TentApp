@@ -21,6 +21,8 @@
             android:textSize="15dp"
             android:text="Logga ut"
             android:id="@+id/logOutButton"
+            android:backgroundTint="@color/button_pressed"
+            android:background="@drawable/buttoncolor"
             android:layout_alignParentLeft="true"/>
 
         <TextView
