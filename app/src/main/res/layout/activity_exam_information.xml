@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.hannah.tentapp.ExamInformation"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top"
+        android:orientation="vertical" >
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="135dp"
+        android:text="Öppna karta"
+        android:id="@+id/findRoomButton"
+        android:background="@drawable/buttoncolor"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_below="@+id/courseNameHeadLine"
+        android:layout_marginTop="0dp"
+        android:layout_gravity="center_horizontal" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kursnamn:"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:id="@+id/courseNameTextView"
+            android:textAlignment="center"
+            android:layout_marginTop="40dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Datum:"
+            android:id="@+id/dateTextView"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="20dp"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tid:"
+            android:id="@+id/courseTimeTextView"
+            android:layout_gravity="center_vertical"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hjälpmedel:"
+            android:id="@+id/courseAidTextView"
+            android:layout_gravity="center_vertical"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Plats:"
+            android:id="@+id/coursePlaceTextView"
+            android:layout_gravity="center_vertical"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anmälansstart:"
+            android:id="@+id/courseRegIntervalTextView1"
+            android:layout_gravity="center_vertical"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anmälansslut:"
+            android:id="@+id/courseRegIntervalTextView2"
+            android:layout_gravity="center_vertical"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anmäld:"
+            android:id="@+id/courseRegTextView"
+            android:layout_gravity="center_vertical"
+             />
+
+    </LinearLayout>
+
+</LinearLayout>
