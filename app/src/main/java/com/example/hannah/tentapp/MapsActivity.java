@@ -48,8 +48,7 @@ import java.util.List;
 
 public class MapsActivity extends AppCompatActivity
         implements GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener
-{
+        GoogleApiClient.OnConnectionFailedListener {
 
 
     private static final int ERROR_DIALOG_REQUEST = 9001;
@@ -70,9 +69,8 @@ public class MapsActivity extends AppCompatActivity
             setContentView(R.layout.activity_maps);
 
             if (initMap()) {
-                Toast.makeText(this, "Ready to map", Toast.LENGTH_SHORT).show();
-               goToLocation(FORSKNINGSGANGEN_LAT, FORSKNINGSGANGEN_LNG, 15);
-
+                Toast.makeText(this, "Bygger karta", Toast.LENGTH_SHORT).show();
+                goToLocation(FORSKNINGSGANGEN_LAT, FORSKNINGSGANGEN_LNG, 15);
 
 
                 mLocationClient = new GoogleApiClient.Builder(this)
@@ -85,7 +83,7 @@ public class MapsActivity extends AppCompatActivity
                 mLocationClient.connect();
 
             } else {
-                Toast.makeText(this, "Map not connected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Kunde ej nå karta", Toast.LENGTH_SHORT).show();
             }
 
 
@@ -123,8 +121,7 @@ public class MapsActivity extends AppCompatActivity
         EditText location_tf = (EditText) findViewById(R.id.TFaddress);
         String location = location_tf.getText().toString();
         List<Address> addressList = null;
-        if (location != null || !location.equals(""))
-        {
+        if (!(location == null || location.equals(""))) {
             Geocoder geocoder = new Geocoder(this);
             try {
                 addressList = geocoder.getFromLocationName(location, 1);
@@ -135,10 +132,10 @@ public class MapsActivity extends AppCompatActivity
             Address address = addressList.get(0);
             LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
             mMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
 
-            InputMethodManager inputMgr = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-            EditText editText = (EditText)findViewById(R.id.TFaddress);
+            InputMethodManager inputMgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            EditText editText = (EditText) findViewById(R.id.TFaddress);
             inputMgr.hideSoftInputFromWindow(editText.getWindowToken(), 0);
         }
     }
@@ -156,6 +153,9 @@ public class MapsActivity extends AppCompatActivity
     private void setUpMap() {
         mMap.addMarker(new MarkerOptions().position(new LatLng(57.706380, 11.938502)).title("marker"));
 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
         mMap.setMyLocationEnabled(true);
     }
 
@@ -168,7 +168,7 @@ public class MapsActivity extends AppCompatActivity
             Dialog dialog = GooglePlayServicesUtil.getErrorDialog(isAvailable, this, ERROR_DIALOG_REQUEST);
             dialog.show();
         } else {
-            Toast.makeText(this, "Can't connect to mapping service", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Kunde ej ansluta till karttjänsten", Toast.LENGTH_SHORT).show();
         }
 
         return false;
@@ -187,7 +187,7 @@ public class MapsActivity extends AppCompatActivity
 
         TextView tv = (TextView) findViewById(R.id.TFaddress);
         String searchString = tv.getText().toString();
-        Toast.makeText(this, "searching for: " + searchString, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Söker efter: " + searchString, Toast.LENGTH_SHORT).show();
 
         Geocoder gc = new Geocoder(this);
 
@@ -196,7 +196,7 @@ public class MapsActivity extends AppCompatActivity
         if (list.size() > 0) {
             Address add = list.get(0);
             String locality = add.getLocality();
-            Toast.makeText(this, "Found> " + locality, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Hittade> " + locality, Toast.LENGTH_SHORT).show();
 
             double lat = add.getLatitude();
             double lng = add.getLongitude();
@@ -206,19 +206,22 @@ public class MapsActivity extends AppCompatActivity
         }
     }
 
-    public void showCurrentLocation(View v ) {
+    public void showCurrentLocation(View v) {
 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
         Location currentLocation = LocationServices.FusedLocationApi
                 .getLastLocation(mLocationClient);
         if (currentLocation == null) {
-            Toast.makeText(this, "Couldn't connect!", Toast.LENGTH_SHORT).show();
-        } else  {
+            Toast.makeText(this, "Kunde ej ansluta!", Toast.LENGTH_SHORT).show();
+        } else {
             LatLng latlng = new LatLng(
                     currentLocation.getLatitude(),
                     currentLocation.getLongitude()
             );
             CameraUpdate update = CameraUpdateFactory.newLatLngZoom(
-                    latlng,15
+                    latlng, 15
             );
             mMap.animateCamera(update);
             hideSoftKeyboard(v);
@@ -227,26 +230,29 @@ public class MapsActivity extends AppCompatActivity
 
     @Override
     public void onConnected(Bundle bundle) {
-        Toast.makeText(this, "Ready to map", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Bygger karta", Toast.LENGTH_SHORT).show();
 
         mListener = new com.google.android.gms.location.LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
                 Toast.makeText(MapsActivity.this,
-                        "Location Changed: " + location.getLatitude() + " , "
-                        + location.getLongitude(), Toast.LENGTH_SHORT).show();
+                        "Plats ändrad: " + location.getLatitude() + " , "
+                                + location.getLongitude(), Toast.LENGTH_SHORT).show();
 
                 goToLocation(location.getLatitude(), location.getLongitude(), 15);
 
-                }
-             };
+            }
+        };
         LocationRequest request = LocationRequest.create();
-                request.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-                request.setInterval(60000);
-                request.setFastestInterval(5000);
-                LocationServices.FusedLocationApi.requestLocationUpdates(
-                        mLocationClient, request, mListener
-                );
+        request.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        request.setInterval(60000);
+        request.setFastestInterval(5000);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        LocationServices.FusedLocationApi.requestLocationUpdates(
+                mLocationClient, request, mListener
+        );
         }
 
     @Override
