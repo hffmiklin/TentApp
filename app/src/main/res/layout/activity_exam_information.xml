@@ -19,7 +19,7 @@
 
     <Button
         android:layout_width="200dp"
-        android:layout_height="150dp"
+        android:layout_height="135dp"
         android:text="Öppna karta"
         android:id="@+id/findRoomButton"
         android:background="@drawable/buttoncolor"
@@ -78,8 +78,16 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Anmälansintervall:"
-            android:id="@+id/courseRegIntervalTextView"
+            android:text="Anmälansstart:"
+            android:id="@+id/courseRegIntervalTextView1"
+            android:layout_gravity="center_vertical"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anmälansslut:"
+            android:id="@+id/courseRegIntervalTextView2"
             android:layout_gravity="center_vertical"
             />
 

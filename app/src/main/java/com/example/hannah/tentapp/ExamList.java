@@ -19,7 +19,8 @@ public class ExamList extends AppCompatActivity {
     List<String> courseTimeList;
     List<String> courseAidList;
     List<String> coursePlaceList;
-    List<String> courseRegIntervalList;
+    List<String> courseRegIntervalList1;
+    List<String> courseRegIntervalList2;
     List<String> courseRegYesNoList;
 
 
@@ -91,16 +92,27 @@ public class ExamList extends AppCompatActivity {
         coursePlaceList.add("PATRICIA, sal Omega");
         coursePlaceList.add("SAGA, sal 103");
 
-        courseRegIntervalList = new ArrayList<String>();
-        courseRegIntervalList.add("2016-04-03 - 2016-05-03");
-        courseRegIntervalList.add("2016-03-22 - 2016-04-22");
-        courseRegIntervalList.add("2016-03-17 - 2016-04-17");
-        courseRegIntervalList.add("2016-02-22 - 2016-03-22");
-        courseRegIntervalList.add("2016-02-04 - 2016-03-04");
-        courseRegIntervalList.add("2016-01-21 - 2016-02-21");
-        courseRegIntervalList.add("2016-01-10 - 2016-02-10");
-        courseRegIntervalList.add("2015-12-19 - 2016-01-19");
-        courseRegIntervalList.add("2015-12-16 - 2016-01-16");
+        courseRegIntervalList1 = new ArrayList<String>();
+        courseRegIntervalList1.add("2016-04-03");
+        courseRegIntervalList1.add("2016-03-22");
+        courseRegIntervalList1.add("2016-03-17");
+        courseRegIntervalList1.add("2016-02-22");
+        courseRegIntervalList1.add("2016-02-04");
+        courseRegIntervalList1.add("2016-01-21");
+        courseRegIntervalList1.add("2016-01-10");
+        courseRegIntervalList1.add("2015-12-19");
+        courseRegIntervalList1.add("2015-12-16");
+
+        courseRegIntervalList2 = new ArrayList<String>();
+        courseRegIntervalList2.add("2016-05-03");
+        courseRegIntervalList2.add("2016-04-22");
+        courseRegIntervalList2.add("2016-04-17");
+        courseRegIntervalList2.add("2016-03-22");
+        courseRegIntervalList2.add("2016-03-04");
+        courseRegIntervalList2.add("2016-02-21");
+        courseRegIntervalList2.add("2016-02-10");
+        courseRegIntervalList2.add("2016-01-19");
+        courseRegIntervalList2.add("2016-01-16");
 
         courseRegYesNoList = new ArrayList<String>();
         courseRegYesNoList.add("Ja");
@@ -132,7 +144,8 @@ public class ExamList extends AppCompatActivity {
                     intent.putExtra("course_time", courseTimeList.get(id));
                     intent.putExtra("course_aid", courseAidList.get(id));
                     intent.putExtra("course_place", coursePlaceList.get(id));
-                    intent.putExtra("course_reg_intervall", courseRegIntervalList.get(id));
+                    intent.putExtra("course_reg_interval1", courseRegIntervalList1.get(id));
+                    intent.putExtra("course_reg_interval2", courseRegIntervalList2.get(id));
                     intent.putExtra("course_reg_yes_no", courseRegYesNoList.get(id));
                     startActivity(intent);
                 }

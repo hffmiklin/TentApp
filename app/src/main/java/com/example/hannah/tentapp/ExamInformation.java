@@ -3,10 +3,11 @@ package com.example.hannah.tentapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.graphics.Typeface;
 
 public class ExamInformation extends AppCompatActivity {
 
-    TextView courseName, courseDate, courseTime, courseAid, coursePlace, courseRegInt, courseRegYN;
+    TextView courseName, courseDate, courseTime, courseAid, coursePlace, courseRegInt1, courseRegInt2, courseRegYN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,8 @@ public class ExamInformation extends AppCompatActivity {
         courseTime = (TextView) findViewById(R.id.courseTimeTextView);
         courseAid = (TextView) findViewById(R.id.courseAidTextView);
         coursePlace = (TextView) findViewById(R.id.coursePlaceTextView);
-        courseRegInt = (TextView) findViewById(R.id.courseRegIntervalTextView);
+        courseRegInt1 = (TextView) findViewById(R.id.courseRegIntervalTextView1);
+        courseRegInt2 = (TextView) findViewById(R.id.courseRegIntervalTextView2);
         courseRegYN = (TextView) findViewById(R.id.courseRegTextView);
 
         Bundle extras = getIntent().getExtras();
@@ -29,18 +31,34 @@ public class ExamInformation extends AppCompatActivity {
         String courseTimeString = extras.getString("course_time");
         String courseAidString = extras.getString("course_aid");
         String coursePlaceString = extras.getString("course_place");
-        String courseRegIntervallString = extras.getString("course_reg_intervall");
+        String courseRegInterval1String = extras.getString("course_reg_interval1");
+        String courseRegInterval2String = extras.getString("course_reg_interval2");
         String courseRegYesNoString = extras.getString("course_reg_yes_no");
 
+
+        //rader nedan formaterat strängar för tentainfon
         courseName.setText(courseNameString);
-        courseDate.setText("Datum: " + courseDateString);
-        courseTime.setText("Tid: " + courseTimeString);
-        courseAid.setText("Hjälpmedel: " + courseAidString);
-        coursePlace.setText("Lokal: " + coursePlaceString);
-        courseRegInt.setText("Registrering: " + courseRegIntervallString);
-        courseRegYN.setText("Anmäld: " + courseRegYesNoString);
 
+        courseDate.setTypeface(Typeface.MONOSPACE);
+        courseDate.setText(String.format("%-16s" + courseDateString, "Provdatum: "));
 
+        courseTime.setTypeface(Typeface.MONOSPACE);
+        courseTime.setText(String.format("%-16s" + courseTimeString, "Tid: "));
+
+        courseAid.setTypeface(Typeface.MONOSPACE);
+        courseAid.setText(String.format("%-16s" + courseAidString, "Hjälpmedel: "));
+
+        coursePlace.setTypeface(Typeface.MONOSPACE);
+        coursePlace.setText(String.format("%-16s" + coursePlaceString, "Lokal: "));
+
+        courseRegInt1.setTypeface(Typeface.MONOSPACE);
+        courseRegInt1.setText(String.format("%-16s" + courseRegInterval1String, "Första anmdag: "));
+
+        courseRegInt2.setTypeface(Typeface.MONOSPACE);
+        courseRegInt2.setText(String.format("%-16s" + courseRegInterval2String, "Sista anmdag: "));
+
+        courseRegYN.setTypeface(Typeface.MONOSPACE);
+        courseRegYN.setText(String.format("%-16s" + courseRegYesNoString, "Anmäld: "));
 
 
         // TODO import list of elements of chosen exam, connect with db
