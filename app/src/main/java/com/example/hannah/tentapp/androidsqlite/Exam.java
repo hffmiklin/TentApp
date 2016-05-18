@@ -66,4 +66,39 @@ public class Exam {
         
         this._registered = registered;
     }
+    
+    // getters
+    public String getCourseNr() {
+        return this.course_nr;
+    }
+    public String getCourseName() {
+        return this.course_name;
+    }
+    public String getDate() {
+        return this.date;
+    }
+    public String getTimeStart() {
+        return this.time_start;
+    }
+    public String getTimeEnd() {
+        return this.time_end;
+    }
+    public String getAid() {
+        return this.aid;
+    }
+    public String getBuilding() {
+        return this.building;
+    }
+    public String getRoom() {
+        return this.room;
+    }
+    public String getRegOpen() {
+        return this.reg_open;
+    }
+    public String getRegClose() {
+        return this.reg_close;
+    }
+    public String getRegistered() {
+        return this.registered;
+    }
 }
