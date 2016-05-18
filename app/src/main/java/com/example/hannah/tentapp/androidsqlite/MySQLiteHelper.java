@@ -15,15 +15,17 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
     //tables
     public static final String TABLE_USER="user";
     public static final String TABLE_COURSE="course";
-    public static final String TABLE_USER_COURSE="user_course";
     public static final String TABLE_EXAM="exam";
     public static final String TABLE_USER_EXAM="user_exam";
     public static final String TABLE_BUILDING="building";
+    
+    //views
+    public static final String VIEW_COURSE_LIST="course_list";
+    public static final String VIEW_EXAM_LIST="exam_list";
 
     //Common column names
-    private static final String KEY_ID = "id";
     private static final String KEY_PNR = "pnr";
-    private static final String KEY_GUL_ID = "gul_id";
+    private static final String KEY_GUL_ID = "gul_id"; //is common?
     private static final String KEY_NAME = "name";
 
     //User column names
@@ -32,9 +34,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
     private static final String KEY_PASSWORD = "password";
 
     //course column names
+    private static final String KEY_COURSE_ID = "course_id";
     private static final String KEY_NR = "nr";
 
     //exam column names
+    private static final String KEY_EXAM_ID = "exam_id";
     private static final String KEY_DATE = "date";
     private static final String KEY_TIME_START = "time_start";
     private static final String KEY_TIME_END = "time_end";
@@ -59,39 +63,35 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         //create user table
         String CREATE_USER_TABLE = "CREATE TABLE" + TABLE_USER + "("
-                + KEY_PNR + "PRIMARY KEY,"
-                + KEY_GUL_ID + " TEXT,"
-                + KEY_FIRST_NAME + "TEXT,"
-                + KEY_LAST_NAME + "TEXT" 
-                + KEY_PASSWORD + "TEXT" + ")";
+            + KEY_PNR + "PRIMARY KEY,"
+            + KEY_GUL_ID + " TEXT,"
+            + KEY_FIRST_NAME + "TEXT,"
+            + KEY_LAST_NAME + "TEXT" 
+            + KEY_PASSWORD + "TEXT" + ")";
         db.execSQL(CREATE_USER_TABLE);
         //create course table
         String CREATE_COURSE_TABLE = "CREATE TABLE" + TABLE_COURSE + "("
-                + KEY_ID + "PRIMARY KEY,"
-                + KEY_NR + " TEXT,"
-                + KEY_NAME + "TEXT" + ")";
+            + KEY_COURSE_ID + "PRIMARY KEY,"
+            + KEY_NR + " TEXT,"
+            + KEY_NAME + "TEXT" + ")";
         db.execSQL(CREATE_COURSE_TABLE);
-        //create user_course table
-        String CREATE_USER_COURSE_TABLE = "CREATE TABLE" + TABLE_USER_COURSE + "("
-                + KEY_PNR + "INT NOT NULL"
-                + KEY_ID + "INT NOT NULL" + ")";
-        db.execSQL(CREATE_USER_COURSE_TABLE);
         //create exam table
         String CREATE_EXAM_TABLE = "CREATE TABLE" + TABLE_EXAM + "("
-                + KEY_ID + "PRIMARY KEY NOT NULL"
-                + KEY_DATE + "TEXT"
-                + KEY_TIME_START + "TEXT"
-                + KEY_TIME_END + "TEXT"
-                + KEY_AID + "TEXT"
-                + KEY_BUILDING + "TEXT"
-                + KEY_ROOM + "TEXT"
-                + KEY_REG_OPEN + "TEXT"
-                + KEY_REG_CLOSE + "TEXT" + ")";
+            + KEY_EXAM_ID + "PRIMARY KEY NOT NULL"
+            + KEY_COURSE_ID + "INT"
+            + KEY_DATE + "TEXT"
+            + KEY_TIME_START + "TEXT"
+            + KEY_TIME_END + "TEXT"
+            + KEY_AID + "TEXT"
+            + KEY_BUILDING + "TEXT"
+            + KEY_ROOM + "TEXT"
+            + KEY_REG_OPEN + "TEXT"
+            + KEY_REG_CLOSE + "TEXT" + ")";
         db.execSQL(CREATE_EXAM_TABLE);
         //create user_exam table
         String CREATE_USER_EXAM_TABLE = "CREATE TABLE" + TABLE_USER_EXAM + "("
                 + KEY_PNR + "INT NOT NULL"
-                + KEY_ID + "INT NOT NULL"
+                + KEY_EXAM_ID + "INT NOT NULL"
                 + KEY_REGISTERED + "TEXT" + ")";
         db.execSQL(CREATE_USER_EXAM_TABLE);
         //create building table
@@ -99,6 +99,40 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
                 + KEY_NAME + "TEXT NOT NULL"
                 + KEY_ADDRESS + "TEXT NOT NULL" + ")";
         db.execSQL(CREATE_BUILDING_TABLE);
+        
+        //create views
+        String CREATE_VIEW_COURSE_LIST = "CREATE VIEW " + VIEW_COURSE_LIST " AS " +
+        "SELECT " + TABLE_COURSE + "." + KEY_COURSE_ID + ","
+            + TABLE_COURSE + "." + KEY_NR + ", "  
+            + TABLE_COURSE + "." + KEY_NAME +
+        " FROM " + TABLE_USER + 
+        " INNER JOIN " + TABLE_USER_COURSE + 
+        " ON " + TABLE_USER + "." + KEY_PNR + "=" + TABLE_USER_COURSE + "." + KEY_PNR +
+        " WHERE " + TABLE_USER + "." + KEY_GUL_ID + "=" + "guspetanh";
+        db.execSQL(CREATE_VIEW_COURSE_LIST);
+        
+        String CREATE_VIEW_EXAM_LIST = "CREATE VIEW " + VIEW_EXAM_LIST " AS " +
+        "SELECT " + TABLE_COURSE + "." + KEY_NR + ","  
+            + TABLE_COURSE + "." + KEY_NAME + ","
+            + TABLE_EXAM + "." + KEY_DATE + ","
+            + TABLE_EXAM + "." + KEY_TIME_START + ","
+            + TABLE_EXAM + "." + KEY_TIME_START + ","
+            + TABLE_EXAM + "." + KEY_AID + ","
+            + TABLE_EXAM + "." + KEY_BUILDING + ","
+            + TABLE_EXAM + "." + KEY_ROOM + ","
+            + TABLE_EXAM + "." + KEY_REG_OPEN + ","
+            + TABLE_EXAM + "." + KEY_REG_CLOSE + ","
+            + TABLE_USER_EXAM + "." + KEY_REGISTERED
+        " FROM " + VIEW_COURSE_LIST +
+        " INNER JOIN " + TABLE_EXAM + 
+        " ON " + TABLE_COURSE + "." KEY_COURSE_ID "=" TABLE_EXAM + "." + KEY_COURSE_ID;
+        db.execSQL(CREATE_VIEW_EXAM_LIST);
+            
+        "FROM " + TABLE_USER + 
+        " INNER JOIN " + "TABLE_USER_COURSE " + 
+        "ON " + TABLE_USER + "." + "KEY_PNR" + "=" + "TABLE_USER_COURSE" + "." + "KEY_PNR" +
+        " INNER JOIN " + 
+
 
         //Initial data
         String INITIAL_DATA_USER=
