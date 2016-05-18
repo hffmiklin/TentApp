@@ -17,36 +17,53 @@ public class Exam {
     String _room;
     String _reg_open;
     String _reg_close;
+    String _registered;
 
     //Empty contructor
     public Exam(){
 
     }
-    //constructor
-    public Exam(int id,
-                String course_nr,
-                String course_name,
-                String date,
-                String time_start,
-                String time_end,
-                String aid,
-                String building,
-                String address,
-                String room,
-                String reg_open,
-                String reg_close){
+    //constructor for courseList
+    public Exam(String course_nr,
+                String course_name){
 
-        this._id = id;
         this._course_nr = course_nr;
         this._course_name = course_name;
+    }
+    //constructor for courseDateList
+    public Exam(String date){
+
         this._date = date;
+    }
+    //constructor for courseTimeList 
+    public Exam(String time_start,
+                String time_end){
+
         this._time_start = time_start;
         this._time_end = time_end;
+    }
+    //constructor for courseAidList
+    public Exam(String aid){
+
         this._aid = aid;
+    }
+    // constructor for coursePlaceList
+    public Exam(String building,
+                String room){
+                    
         this._building = building;
-        this._address = address;
         this._room = room;
+    }
+    //constructor for courseRegIntervalList
+    public Exam(String reg_open,
+                String reg_close){
+        
         this._reg_open = reg_open;
         this._reg_close = reg_close;
+    }
+    //constructor for courseRegYesNoList
+    public Exam(String registered){
+        
+        this._registered = registered;
     }
 }
