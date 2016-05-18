@@ -129,14 +129,16 @@ public class MapsActivity extends AppCompatActivity
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Address address = addressList.get(0);
-            LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+            if (addressList.size() > 0){
+                Address address = addressList.get(0);
+                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                mMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
 
-            InputMethodManager inputMgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            EditText editText = (EditText) findViewById(R.id.TFaddress);
-            inputMgr.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+                InputMethodManager inputMgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                EditText editText = (EditText) findViewById(R.id.TFaddress);
+                inputMgr.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+            }
         }
     }
 
