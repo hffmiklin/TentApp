@@ -1,21 +1,28 @@
-# TentApp 2016-05-19  
-Kurs: Interaktionsdesign/TIG164  
+# TentApp 
+2016-05-19  
+Interaktionsdesign/TIG164  
+  
 Grupp: Liberty Belle  
 Projektmedlemmar: Hannah Miklin, Niklas Andersson, Anna Anumat, Emeli Fransson, Frida Simonsson  
 Kontaktinformation:  
+Hannah Miklin: gusmiklha@student.gu.se
+Niklas Andersson: gusandniz@student.gu.se
 Anna Anumat: gusanuan@student.gu.se   
 Emeli Fransson: gusfraemh@student.gu.se   
-Frida Simonsson: gusfridasi@student.gu.se   
-Hannah Miklin: gusmiklha@student.gu.se   
-Niklas Andersson: gusandniz@student.gu.se   
+Frida Simonsson: gusfridasi@student.gu.se  
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Vad är TentApp?
-En applikation avsedd för android-enheter. applikationen syftar till att underlätta främst studenters informationshantering kring tentamen.
-Apk-filen kan enbart installeras på en androidenhet och ej på PC. Appliktione är skapad i Android Studios.
-//////////////////////////////////////////
-Nerladning av apk-fil på en androidenhet (exempelvis mobil):
+////////////////////////////////////////////////////////////////////////////////////////  
+
+Vad är TentApp?  
+TentApp är en applikation avsedd för android-enheter. Applikationen syftar till att underlätta studenters informationshantering kring tentamen och att minska stressmoment innan tentamensskrivningen.  
+  
+/////////////////////////////////////////////////////////////////////////////////////////  
+  
+Applikationen är utvecklad i Android Studios och installeras på en Androidenhet genom en apk-fil.  
+Apk-filen kan enbart installeras på en androidenhet och ej på PC.   
+  
+Nedladdning av apk-fil på en androidenhet (exempelvis mobil):
 1. Ladda ner apk-filen
   i. om du får upp en varning som säger att filen kan vara skadligt för enheten--> Tryck OK
 2. Öppna applikationen
