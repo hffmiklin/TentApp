@@ -46,8 +46,26 @@ public class ExamList extends AppCompatActivity {
         userNameString = extras.getString("user_name");
 
         courseList = new ArrayList<String>();
-        Log.d("GetCourseNames:", "Getting ..");
         courseList = helper.getCourseNames();
+
+        courseDateList = new ArrayList<String>();
+        courseDateList = helper.getExamDates();
+
+        courseTimeList = new ArrayList<String>();
+        courseTimeList = helper.getExamTimes();
+
+        courseAidList = new ArrayList<String>();
+        courseAidList = helper.getAids();
+
+        coursePlaceList = new ArrayList<String>();
+        coursePlaceList = helper.getPlaces();
+
+        courseRegIntervalList = new ArrayList<String>();
+        courseRegIntervalList = helper.getRegIntervals();
+
+        courseRegYesNoList = new ArrayList<String>();
+        courseRegYesNoList = helper.getRegistered();
+
         Log.d("What's in courseList?", courseList.get(0)+","+courseList.get(1));
         //Debug
         //String check = courseList.get(0);
@@ -68,7 +86,7 @@ public class ExamList extends AppCompatActivity {
         courseList.add("TIG098 eBusiness och eGovernment");
         courseList.add("TIG162 Affärssystem");
         courseList.add("TIG163 Beslutsstödssystem");
-        */
+
         courseDateList = new ArrayList<String>();
         courseDateList.add("2016-06-03");
         courseDateList.add("2016-05-22");
@@ -145,7 +163,7 @@ public class ExamList extends AppCompatActivity {
         courseRegYesNoList.add("Ja");
         courseRegYesNoList.add("Nej");
         courseRegYesNoList.add("Ja");
-
+*/
 
 
         for(int i = 0; i< courseList.size(); i++) {

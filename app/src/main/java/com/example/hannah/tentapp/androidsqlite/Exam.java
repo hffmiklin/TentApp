@@ -1,8 +1,5 @@
 package com.example.hannah.tentapp.androidsqlite;
 
-/**
- * Created by Emeli on 2016-05-18.
- */
 public class Exam {
     //private variables
     int _id;
@@ -74,6 +71,33 @@ public class Exam {
     }
     public void setCourseName(String courseName){
         this._course_name = courseName;
+    }
+    public void setDate(String date) {
+        this._date = date;
+    }
+    public void setTimeStart(String timeStart){
+        this._time_start = timeStart;
+    }
+    public void setTimeEnd(String timeEnd){
+        this._time_end = timeEnd;
+    }
+    public void setAid(String aid){
+        this._aid = aid;
+    }
+    public void setBuilding(String building){
+        this._building = building;
+    }
+    public void setRoom(String room){
+        this._room = room;
+    }
+    public void setRegOpen(String regOpen){
+        this._reg_open = regOpen;
+    }
+    public void setRegClose(String regClose){
+        this._reg_close = regClose;
+    }
+    public void setRegistered(String registered){
+        this._registered = registered;
     }
 
     // getters
