@@ -5,26 +5,26 @@ Interaktionsdesign/TIG164
 Grupp: Liberty Belle  
 Projektmedlemmar: Hannah Miklin, Niklas Andersson, Anna Anumat, Emeli Fransson, Frida Simonsson  
 Kontaktinformation:  
-Hannah Miklin: gusmiklha@student.gu.se
-Niklas Andersson: gusandniz@student.gu.se
-Anna Anumat: gusanuan@student.gu.se   
-Emeli Fransson: gusfraemh@student.gu.se   
-Frida Simonsson: gusfridasi@student.gu.se  
+Hannah Miklin: gusmiklha@student.gu.se  
+Niklas Andersson: gusandniz@student.gu.se  
+Anna Anumat: gusanuan@student.gu.se     
+Emeli Fransson: gusfraemh@student.gu.se     
+Frida Simonsson: gusfridasi@student.gu.se    
 
 
 ////////////////////////////////////////////////////////////////////////////////////////  
 
 Vad är TentApp?  
-TentApp är en applikation avsedd för android-enheter. Applikationen syftar till att underlätta studenters informationshantering kring tentamen och att minska stressmoment innan tentamensskrivningen.  
+TentApp är en applikation avsedd för Androidenheter. Applikationen syftar till att underlätta studenters informationshantering kring tentamen och att minska stressmoment innan tentamensskrivningen. Applikationen ger relevant information om kommande tentor och i vilken sal dessa ska skrivas. Denna anvisning sker i form utav en kartvy.     
+    
+/////////////////////////////////////////////////////////////////////////////////////////    
   
-/////////////////////////////////////////////////////////////////////////////////////////  
-  
-Applikationen är utvecklad i Android Studios och installeras på en Androidenhet genom en apk-fil.  
-Apk-filen kan enbart installeras på en androidenhet och ej på PC.   
-  
-Nedladdning av apk-fil på en androidenhet (exempelvis mobil):
+Applikationen är utvecklad i Android Studios och installeras på en Androidenhet genom en apk-fil. En apk-fil är filformatet som används för att installera mjukvara (oftast applikationer eller spel) på Androids operativsystem.  
+Apk-filen kan enbart installeras på en Androidenhet och ej på PC.  
+
+Nedladdning av apk-fil på en androidenhet (exempelvis smart phone):
 1. Ladda ner apk-filen
-  i. om du får upp en varning som säger att filen kan vara skadligt för enheten--> Tryck OK
+  i. om du får upp en varning som säger att filen kan vara skadligt för enheten--> Tryck OK*
 2. Öppna applikationen
   i. Om enheten ger dig olika val att öppna applikationen--> Välj Installationsprogram för paket
   ii. Klicka på Installera
