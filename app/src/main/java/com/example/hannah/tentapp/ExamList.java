@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import java.util.*;
+
+import android.util.Log;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.graphics.drawable.*;
@@ -17,7 +19,7 @@ import java.util.regex.Pattern;
 
 public class ExamList extends AppCompatActivity {
 
-    MySQLiteHelper db;
+    MySQLiteHelper helper;
 
     List<String> courseList;
     List<String> courseDateList;
@@ -36,7 +38,7 @@ public class ExamList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam_list);
 
-        db = new MySQLiteHelper(getApplicationContext());
+        helper = new MySQLiteHelper(getApplicationContext());
 
         LinearLayout layout = (LinearLayout)findViewById(R.id.examListLayout);
 
@@ -44,7 +46,12 @@ public class ExamList extends AppCompatActivity {
         userNameString = extras.getString("user_name");
 
         courseList = new ArrayList<String>();
-        courseList = db.getCourseNames();
+        Log.d("GetCourseNames:", "Getting ..");
+        courseList = helper.getCourseNames();
+        Log.d("What's in courseList?", courseList.get(0)+","+courseList.get(1));
+        //Debug
+        //String check = courseList.get(0);
+        //Log.d("Got any courses?", check);
 
         // TODO Import list of exams from database
         // hard coding list of strings instead of getting from db
