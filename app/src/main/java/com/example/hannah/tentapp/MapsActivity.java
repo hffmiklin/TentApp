@@ -40,7 +40,9 @@ import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
@@ -59,6 +61,8 @@ public class MapsActivity extends AppCompatActivity
 
     private GoogleApiClient mLocationClient;
     private com.google.android.gms.location.LocationListener mListener;
+    LatLng latLng;
+    Marker mCurrLocation;
 
 
     @Override
@@ -234,7 +238,22 @@ public class MapsActivity extends AppCompatActivity
     public void onConnected(Bundle bundle) {
         Toast.makeText(this, "Bygger karta", Toast.LENGTH_SHORT).show();
 
-        mListener = new com.google.android.gms.location.LocationListener() {
+
+
+        Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                mLocationClient);
+        if (mLastLocation != null) {
+            //place marker at current position
+            mMap.clear();
+            latLng = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(latLng);
+            markerOptions.title("Current Position");
+            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+            mCurrLocation = mMap.addMarker(markerOptions);
+        }
+        mListener = new com.google.android.gms.location.LocationListener()
+        {
             @Override
             public void onLocationChanged(Location location) {
                 Toast.makeText(MapsActivity.this,
@@ -249,7 +268,9 @@ public class MapsActivity extends AppCompatActivity
         request.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         request.setInterval(60000);
         request.setFastestInterval(5000);
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission
+                (this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
         LocationServices.FusedLocationApi.requestLocationUpdates(
