@@ -223,4 +223,160 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
         return courseNamesStrings;
     }
 
+    public List<String> getExamDates() {
+        Log.d("getExamDates() ", "Start");
+        List<Exam> examDates;
+        examDates = new ArrayList<Exam>();
+        String selectQuery = "SELECT " + KEY_DATE + " FROM " + VIEW_EXAM_LIST;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Exam ex = new Exam();
+                Log.d("creating String Nr", c.getString((c.getColumnIndex(KEY_DATE))));
+                Log.d("c.getColumnIndex", Integer.toString(c.getColumnIndex(KEY_DATE)));
+                ex.setDate(c.getString((c.getColumnIndex(KEY_DATE))));
+                examDates.add(ex);
+            } while (c.moveToNext());
+        }
+        List<String> examDatesStrings = new ArrayList<>();
+        for (Exam ex : examDates) {
+            examDatesStrings.add(ex != null ? ex.getDate(): null);
+        }
+
+        return examDatesStrings;
+    }
+
+    public List<String> getExamTimes() {
+        Log.d("getExamTimes() ", "Started");
+        List<Exam> examTimes;
+        examTimes = new ArrayList<Exam>();
+        String selectQuery = "SELECT " + KEY_TIME_START + "," + KEY_TIME_END + " FROM " + VIEW_EXAM_LIST;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Exam ex = new Exam();
+                Log.d("creating String Nr", c.getString((c.getColumnIndex(KEY_TIME_START))));
+                Log.d("creating String Nr", c.getString((c.getColumnIndex(KEY_TIME_END))));
+                ex.setTimeStart(c.getString(c.getColumnIndex(KEY_TIME_START)));
+                ex.setTimeEnd(c.getString(c.getColumnIndex(KEY_TIME_END)));
+                examTimes.add(ex);
+            } while (c.moveToNext());
+        }
+        List<String> examTimesStrings = new ArrayList<>();
+        for (Exam ex : examTimes) {
+            examTimesStrings.add(ex != null ? ex.getTimeStart() + "-" + ex.getTimeEnd(): null);
+        }
+
+        return examTimesStrings;
+    }
+
+    public List<String> getAids() {
+        Log.d("getAids() ", "Started");
+        List<Exam> aids;
+        aids = new ArrayList<Exam>();
+        String selectQuery = "SELECT " + KEY_AID + " FROM " + VIEW_EXAM_LIST;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Exam ex = new Exam();
+                Log.d("creating String Nr", c.getString((c.getColumnIndex(KEY_AID))));
+                ex.setAid(c.getString(c.getColumnIndex(KEY_AID)));
+                aids.add(ex);
+            } while (c.moveToNext());
+        }
+        List<String> aidsStrings = new ArrayList<>();
+        for (Exam ex : aids) {
+            aidsStrings.add(ex != null ? ex.getAid(): null);
+        }
+
+        return aidsStrings;
+    }
+
+    public List<String> getPlaces() {
+        Log.d("getPlaces() ", "Started");
+        List<Exam> places;
+        places = new ArrayList<Exam>();
+        String selectQuery = "SELECT " + KEY_BUILDING + "," + KEY_ROOM + " FROM " + VIEW_EXAM_LIST;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Exam ex = new Exam();
+                Log.d("creating Str Building", c.getString((c.getColumnIndex(KEY_BUILDING))));
+                Log.d("creating String Room", c.getString((c.getColumnIndex(KEY_ROOM))));
+                ex.setBuilding(c.getString(c.getColumnIndex(KEY_BUILDING)));
+                ex.setRoom(c.getString(c.getColumnIndex(KEY_ROOM)));
+                places.add(ex);
+            } while (c.moveToNext());
+        }
+        List<String> placesStrings = new ArrayList<>();
+        for (Exam ex : places) {
+            placesStrings.add(ex != null ? ex.getBuilding() + ", " + ex.getRoom(): null);
+        }
+
+        return placesStrings;
+    }
+
+    public List<String> getRegIntervals() {
+        Log.d("getRegIntervals() ", "Started");
+        List<Exam> regIntervals;
+        regIntervals = new ArrayList<Exam>();
+        String selectQuery = "SELECT " + KEY_REG_OPEN+ "," + KEY_REG_CLOSE + " FROM " + VIEW_EXAM_LIST;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Exam ex = new Exam();
+                Log.d("creating Str RegOpen", c.getString((c.getColumnIndex(KEY_REG_OPEN))));
+                Log.d("creating Str RegClose", c.getString((c.getColumnIndex(KEY_REG_CLOSE))));
+                ex.setRegOpen(c.getString(c.getColumnIndex(KEY_REG_OPEN)));
+                ex.setRegClose(c.getString(c.getColumnIndex(KEY_REG_CLOSE)));
+                regIntervals.add(ex);
+            } while (c.moveToNext());
+        }
+        List<String> regIntervalsStrings = new ArrayList<>();
+        for (Exam ex : regIntervals) {
+            regIntervalsStrings.add(ex != null ? ex.getRegOpen() + " - " + ex.getRegClose(): null);
+        }
+
+        return regIntervalsStrings;
+    }
+
+    public List<String> getRegistered() {
+        Log.d("getRegistered() ", "Started");
+        List<Exam> registered;
+        registered = new ArrayList<Exam>();
+        String selectQuery = "SELECT " + KEY_REGISTERED + " FROM " + VIEW_EXAM_LIST;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Exam ex = new Exam();
+                Log.d("creating Str Registered", c.getString(c.getColumnIndex(KEY_REGISTERED)));
+                ex.setRegistered(c.getString(c.getColumnIndex(KEY_REGISTERED)));
+                registered.add(ex);
+            } while (c.moveToNext());
+        }
+        List<String> registeredStrings = new ArrayList<>();
+        for (Exam ex : registered) {
+            registeredStrings.add(ex != null ? ex.getRegistered(): null);
+        }
+
+        return registeredStrings;
+    }
 }
