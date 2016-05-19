@@ -33,7 +33,7 @@
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="84dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Location"
             android:id="@+id/button6"
