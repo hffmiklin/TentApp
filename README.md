@@ -1,13 +1,13 @@
-# TentApp 2016-05-19
-Kurs: Interaktionsdesign/TIG164
-Grupp: Liberty Belle
-Projektmedlemmar: Hannah Miklin, Niklas Andersson, Anna Anumat, Emeli Fransson, Frida Simonsson
-Kontaktinformation:
-Anna Anumat: gusanuan@student.gu.se 
-Emeli Fransson: gusfraemh@student.gu.se 
-Frida Simonsson: gusfridasi@student.gu.se 
-Hannah Miklin: gusmiklha@student.gu.se 
-Niklas Andersson: gusandniz@student.gu.se 
+# TentApp 2016-05-19  
+Kurs: Interaktionsdesign/TIG164  
+Grupp: Liberty Belle  
+Projektmedlemmar: Hannah Miklin, Niklas Andersson, Anna Anumat, Emeli Fransson, Frida Simonsson  
+Kontaktinformation:  
+Anna Anumat: gusanuan@student.gu.se   
+Emeli Fransson: gusfraemh@student.gu.se   
+Frida Simonsson: gusfridasi@student.gu.se   
+Hannah Miklin: gusmiklha@student.gu.se   
+Niklas Andersson: gusandniz@student.gu.se   
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
