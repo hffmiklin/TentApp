@@ -1,8 +1,12 @@
 package com.example.hannah.tentapp.androidsqlite;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Emeli on 2016-05-17.
@@ -20,7 +24,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
     public static final String TABLE_BUILDING="building";
     
     //views
-    public static final String VIEW_COURSE_LIST="course_list";
     public static final String VIEW_EXAM_LIST="exam_list";
 
     //Common column names
@@ -99,40 +102,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
                 + KEY_NAME + "TEXT NOT NULL"
                 + KEY_ADDRESS + "TEXT NOT NULL" + ")";
         db.execSQL(CREATE_BUILDING_TABLE);
-        
-        //create views
-        String CREATE_VIEW_COURSE_LIST = "CREATE VIEW " + VIEW_COURSE_LIST " AS " +
-        "SELECT " + TABLE_COURSE + "." + KEY_COURSE_ID + ","
-            + TABLE_COURSE + "." + KEY_NR + ", "  
-            + TABLE_COURSE + "." + KEY_NAME +
-        " FROM " + TABLE_USER + 
-        " INNER JOIN " + TABLE_USER_COURSE + 
-        " ON " + TABLE_USER + "." + KEY_PNR + "=" + TABLE_USER_COURSE + "." + KEY_PNR +
-        " WHERE " + TABLE_USER + "." + KEY_GUL_ID + "=" + "guspetanh";
-        db.execSQL(CREATE_VIEW_COURSE_LIST);
-        
-        String CREATE_VIEW_EXAM_LIST = "CREATE VIEW " + VIEW_EXAM_LIST " AS " +
-        "SELECT " + TABLE_COURSE + "." + KEY_NR + ","  
-            + TABLE_COURSE + "." + KEY_NAME + ","
-            + TABLE_EXAM + "." + KEY_DATE + ","
-            + TABLE_EXAM + "." + KEY_TIME_START + ","
-            + TABLE_EXAM + "." + KEY_TIME_START + ","
-            + TABLE_EXAM + "." + KEY_AID + ","
-            + TABLE_EXAM + "." + KEY_BUILDING + ","
-            + TABLE_EXAM + "." + KEY_ROOM + ","
-            + TABLE_EXAM + "." + KEY_REG_OPEN + ","
-            + TABLE_EXAM + "." + KEY_REG_CLOSE + ","
-            + TABLE_USER_EXAM + "." + KEY_REGISTERED
-        " FROM " + VIEW_COURSE_LIST +
-        " INNER JOIN " + TABLE_EXAM + 
-        " ON " + TABLE_COURSE + "." KEY_COURSE_ID "=" TABLE_EXAM + "." + KEY_COURSE_ID;
-        db.execSQL(CREATE_VIEW_EXAM_LIST);
-            
-        "FROM " + TABLE_USER + 
-        " INNER JOIN " + "TABLE_USER_COURSE " + 
-        "ON " + TABLE_USER + "." + "KEY_PNR" + "=" + "TABLE_USER_COURSE" + "." + "KEY_PNR" +
-        " INNER JOIN " + 
-
 
         //Initial data
         String INITIAL_DATA_USER=
@@ -142,19 +111,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
         db.execSQL(INITIAL_DATA_USER);
 
         String INITIAL_DATA_COURSE=
-                "INSERT INTO " + TABLE_COURSE + "(id, nr, name) VALUES " +
+                "INSERT INTO " + TABLE_COURSE + "(id_course, nr, name) VALUES " +
                         "(1, 'TIG163', 'Beslutsstödssystem')," +
                         "(2, 'TIG015', 'Informationsteknologi och informationssystem')," +
                         "(3, 'TIG058', 'Databaser och programmeringsteknik')";
         db.execSQL(INITIAL_DATA_COURSE);
-
-        String INITIAL_DATA_USER_COURSE=
-                "INSERT INTO " + TABLE_USER_COURSE + "(pnr, id) VALUES " +
-                        "(7503228222, 1)," +
-                        "(7503228222, 2)," +
-                        "(9409153523, 2)," +
-                        "(9409153523, 3)";
-        db.execSQL(INITIAL_DATA_USER_COURSE);
 
         String INITIAL_DATA_EXAM=
                 "INSERT INTO " + TABLE_EXAM + "(id, date, time_start, time_end, aid, building, room, reg_start, reg_end) VALUES " +
@@ -185,7 +146,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_COURSE);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER_COURSE);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_EXAM);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER_EXAM);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_BUILDING);
@@ -193,4 +153,55 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
         // Create tables again
         onCreate(db);
     }
+    public void closeDB() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        if (db != null && db.isOpen())
+            db.close();
+    }
+
+    public void createView(String presentUser) {
+        //create views
+        SQLiteDatabase db = this.getWritableDatabase();
+        String CREATE_VIEW_EXAM_COURSE_LIST = "CREATE VIEW " + VIEW_EXAM_LIST + " AS " +
+                "SELECT " + TABLE_COURSE + "." + KEY_NR + ","
+                + TABLE_COURSE + "." + KEY_NAME + ","
+                + TABLE_EXAM + "." + KEY_DATE + ","
+                + TABLE_EXAM + "." + KEY_TIME_START + ","
+                + TABLE_EXAM + "." + KEY_TIME_START + ","
+                + TABLE_EXAM + "." + KEY_AID + ","
+                + TABLE_EXAM + "." + KEY_BUILDING + ","
+                + TABLE_EXAM + "." + KEY_ROOM + ","
+                + TABLE_EXAM + "." + KEY_REG_OPEN + ","
+                + TABLE_EXAM + "." + KEY_REG_CLOSE + ","
+                + TABLE_USER_EXAM + "." + KEY_REGISTERED +
+                " FROM " + TABLE_USER +
+                " INNER JOIN " + TABLE_USER_EXAM +
+                " ON " + TABLE_USER + "." + KEY_PNR + "=" + TABLE_USER_EXAM + "." + KEY_PNR +
+                " INNER JOIN " + TABLE_COURSE +
+                " ON " + TABLE_EXAM + "." + KEY_COURSE_ID + "=" + TABLE_COURSE + "." + KEY_COURSE_ID +
+                " WHERE " + TABLE_USER + "." + KEY_GUL_ID + "=" + presentUser;
+        db.execSQL(CREATE_VIEW_EXAM_COURSE_LIST);
+    }
+
+    public List<Exam> getCourseNames() {
+        List<Exam> courseNames = new ArrayList<Exam>();
+        String selectQuery = "SELECT " + KEY_NR + "," + KEY_NAME + " FROM " + VIEW_EXAM_LIST;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Exam ex = new Exam();
+                ex.setCourseNr(c.getString((c.getColumnIndex(KEY_NR))));
+                ex.setCourseName((c.getString(c.getColumnIndex(KEY_NAME))));
+
+                courseNames.add(ex);
+            } while (c.moveToNext());
+        }
+
+        return courseNames;
+    }
+
 }

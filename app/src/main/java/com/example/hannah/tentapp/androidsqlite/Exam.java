@@ -23,6 +23,7 @@ public class Exam {
     public Exam(){
 
     }
+    /*
     //constructor for courseList
     public Exam(String course_nr,
                 String course_name){
@@ -66,39 +67,47 @@ public class Exam {
         
         this._registered = registered;
     }
-    
+*/
+    //setters
+    public void setCourseNr(String courseNr){
+        this._course_nr = courseNr;
+    }
+    public void setCourseName(String courseName){
+        this._course_name = courseName;
+    }
+
     // getters
     public String getCourseNr() {
-        return this.course_nr;
+        return this._course_nr;
     }
     public String getCourseName() {
-        return this.course_name;
+        return this._course_name;
     }
     public String getDate() {
-        return this.date;
+        return this._date;
     }
     public String getTimeStart() {
-        return this.time_start;
+        return this._time_start;
     }
     public String getTimeEnd() {
-        return this.time_end;
+        return this._time_end;
     }
     public String getAid() {
-        return this.aid;
+        return this._aid;
     }
     public String getBuilding() {
-        return this.building;
+        return this._building;
     }
     public String getRoom() {
-        return this.room;
+        return this._room;
     }
     public String getRegOpen() {
-        return this.reg_open;
+        return this._reg_open;
     }
     public String getRegClose() {
-        return this.reg_close;
+        return this._reg_close;
     }
     public String getRegistered() {
-        return this.registered;
+        return this._registered;
     }
 }
