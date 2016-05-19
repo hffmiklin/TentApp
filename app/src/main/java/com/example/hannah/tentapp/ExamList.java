@@ -23,7 +23,7 @@ public class ExamList extends AppCompatActivity {
     List<String> courseRegIntervalList2;
     List<String> courseRegYesNoList;
 
-
+    String userNameString;
 
 
     @Override
@@ -32,6 +32,9 @@ public class ExamList extends AppCompatActivity {
         setContentView(R.layout.activity_exam_list);
 
         LinearLayout layout = (LinearLayout)findViewById(R.id.examListLayout);
+
+        Bundle extras = getIntent().getExtras();
+        userNameString = extras.getString("user_name");
 
         // TODO Import list of exams from database
         // hard coding list of strings instead of getting from db

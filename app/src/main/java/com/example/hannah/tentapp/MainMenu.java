@@ -45,7 +45,11 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Toast.makeText(getApplicationContext(), "Visar tentor",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainMenu.this, ExamList.class));
+                String sendUserName = String.valueOf(userName.getText());
+                Intent intent = new Intent(MainMenu.this, ExamList.class);
+                intent.putExtra("user_name",sendUserName);
+                startActivity(intent);
+                // testar koden ovan om den är samma när username läggs till - startActivity(new Intent(MainMenu.this, ExamList.class));
             }
 
         });
