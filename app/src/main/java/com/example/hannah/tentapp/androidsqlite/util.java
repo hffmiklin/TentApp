@@ -9,8 +9,8 @@ import java.util.List;
 public class Util {
     public static List<String> examToString (List<Exam> examList){
         List<String> strings = new ArrayList<>();
-        for (Object object : examList) {
-            strings.add(object != null ? object.toString() : null);
+        for (Exam ex : examList) {
+            strings.add(ex != null ? ex.getCourseNr() : null);
         }
 
         return strings;
