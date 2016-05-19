@@ -36,12 +36,26 @@ public class LogInWindow extends AppCompatActivity {
                     intent.putExtra("user_name",userName);
                     startActivity(intent);
 
+                } else if (userNameField.getText().toString().equals("guspetanh") && passwordField.getText().toString().equals("hejhej23")) {
+
+                    String userName = String.valueOf(userNameField.getText());
+                    Intent intent = new Intent(LogInWindow.this,MainMenu.class);
+                    intent.putExtra("user_name",userName);
+                    startActivity(intent);
+
+                } else if (userNameField.getText().toString().equals("gusgrasmt") && passwordField.getText().toString().equals("gulgu123")) {
+
+                    String userName = String.valueOf(userNameField.getText());
+                    Intent intent = new Intent(LogInWindow.this,MainMenu.class);
+                    intent.putExtra("user_name",userName);
+                    startActivity(intent);
+
                 } else {
                     Toast.makeText(getApplicationContext(), "Du har angett felaktigt användarid eller lösenord, försök igen.",Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
+        // guspetanh lösen: hejhej23    gusgrasmt lösen: gulgu123
 
     }
 
