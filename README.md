@@ -68,6 +68,7 @@ Menyfönster: fönster olika alternativ ges
 För att återgå till föregående fönster --> använd tillbaka-knappen på din enhet.  
    
 /////////////////////////////////////////////////////////////////////////////////  
+   
 Hur applikationen är tänkt att fungera:  
    
 >Notiser: Användaren ska kunna få notiser om när tentamensanmälan öppnar samt när den stänger.  
