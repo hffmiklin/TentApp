@@ -44,7 +44,7 @@ Logga in-fönster:
 	gusgrasmt/gulgu123  
   ii. Klicka på logga in-knappen 
   
-//////////////////////////////////  
+//////////////////////////////////////  
   
 Menyfönster: fönster olika alternativ ges
     Välj Tenta:  
