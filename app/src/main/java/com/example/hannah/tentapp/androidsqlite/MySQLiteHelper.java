@@ -183,7 +183,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
         db.execSQL(CREATE_VIEW_EXAM_COURSE_LIST);
     }
 
-    public List<Exam> getCourseNames() {
+    public List<String> getCourseNames() {
         List<Exam> courseNames = new ArrayList<Exam>();
         String selectQuery = "SELECT " + KEY_NR + "," + KEY_NAME + " FROM " + VIEW_EXAM_LIST;
 
@@ -196,12 +196,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
                 Exam ex = new Exam();
                 ex.setCourseNr(c.getString((c.getColumnIndex(KEY_NR))));
                 ex.setCourseName((c.getString(c.getColumnIndex(KEY_NAME))));
-
                 courseNames.add(ex);
             } while (c.moveToNext());
         }
+        List<String> courseNamesStrings = Util.examToString(courseNames);
 
-        return courseNames;
+        return courseNamesStrings;
     }
 
 }
