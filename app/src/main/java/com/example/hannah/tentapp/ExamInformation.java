@@ -9,7 +9,7 @@ import android.graphics.Typeface;
 
 public class ExamInformation extends AppCompatActivity {
 
-    TextView courseName, courseDate, courseTime, courseAid, coursePlace, courseRegInt1, courseRegInt2, courseRegYN;
+    TextView courseName, courseDate, courseTime, courseAid, coursePlace, courseRegOpen, courseRegClose, courseRegYN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +22,8 @@ public class ExamInformation extends AppCompatActivity {
         courseTime = (TextView) findViewById(R.id.courseTimeTextView);
         courseAid = (TextView) findViewById(R.id.courseAidTextView);
         coursePlace = (TextView) findViewById(R.id.coursePlaceTextView);
-        courseRegInt1 = (TextView) findViewById(R.id.courseRegIntervalTextView1);
-        courseRegInt2 = (TextView) findViewById(R.id.courseRegIntervalTextView2);
+        courseRegOpen = (TextView) findViewById(R.id.courseRegOpenTextView);
+        courseRegClose = (TextView) findViewById(R.id.courseRegCloseTextView);
         courseRegYN = (TextView) findViewById(R.id.courseRegTextView);
 
         Bundle extras = getIntent().getExtras();
@@ -33,8 +33,8 @@ public class ExamInformation extends AppCompatActivity {
         String courseTimeString = extras.getString("course_time");
         String courseAidString = extras.getString("course_aid");
         String coursePlaceString = extras.getString("course_place");
-        String courseRegInterval1String = extras.getString("course_reg_interval1");
-        String courseRegInterval2String = extras.getString("course_reg_interval2");
+        String courseRegOpenString = extras.getString("course_reg_open");
+        String courseRegCloseString = extras.getString("course_reg_close");
         String courseRegYesNoString = extras.getString("course_reg_yes_no");
 
 
@@ -53,11 +53,11 @@ public class ExamInformation extends AppCompatActivity {
         coursePlace.setTypeface(Typeface.MONOSPACE);
         coursePlace.setText(String.format("%-16s" + coursePlaceString, "Lokal: "));
 
-        courseRegInt1.setTypeface(Typeface.MONOSPACE);
-        courseRegInt1.setText(String.format("%-16s" + courseRegInterval1String, "Första anmdag: "));
+        courseRegOpen.setTypeface(Typeface.MONOSPACE);
+        courseRegOpen.setText(String.format("%-16s" + courseRegOpenString, "Första anmdag: "));
 
-        courseRegInt2.setTypeface(Typeface.MONOSPACE);
-        courseRegInt2.setText(String.format("%-16s" + courseRegInterval2String, "Sista anmdag: "));
+        courseRegClose.setTypeface(Typeface.MONOSPACE);
+        courseRegClose.setText(String.format("%-16s" + courseRegCloseString, "Sista anmdag: "));
 
         courseRegYN.setTypeface(Typeface.MONOSPACE);
         courseRegYN.setText(String.format("%-16s" + courseRegYesNoString, "Anmäld: "));

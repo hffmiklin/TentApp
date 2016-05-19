@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Anmälansstart:"
-            android:id="@+id/courseRegIntervalTextView1"
+            android:id="@+id/courseRegOpenTextView"
             android:layout_gravity="center_vertical"
             />
 
@@ -88,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Anmälansslut:"
-            android:id="@+id/courseRegIntervalTextView2"
+            android:id="@+id/courseRegCloseTextView"
             android:layout_gravity="center_vertical"
             />
 
