@@ -9,10 +9,15 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.graphics.drawable.*;
 import android.view.View;
+
+import com.example.hannah.tentapp.androidsqlite.MySQLiteHelper;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ExamList extends AppCompatActivity {
+
+    MySQLiteHelper db;
 
     List<String> courseList;
     List<String> courseDateList;
@@ -31,15 +36,21 @@ public class ExamList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam_list);
 
+        db = new MySQLiteHelper(getApplicationContext());
+
         LinearLayout layout = (LinearLayout)findViewById(R.id.examListLayout);
 
         Bundle extras = getIntent().getExtras();
         userNameString = extras.getString("user_name");
 
+        courseList = new ArrayList<String>();
+        courseList = db.getCourseNames();
+
         // TODO Import list of exams from database
         // hard coding list of strings instead of getting from db
         // just to see if "future" connection works
 
+        /*
         courseList = new ArrayList<String>();
         courseList.add("TIG164 Interaktionsdesign");
         courseList.add("TIG015 Informationsteknologi och informationssystem");
@@ -50,7 +61,7 @@ public class ExamList extends AppCompatActivity {
         courseList.add("TIG098 eBusiness och eGovernment");
         courseList.add("TIG162 Affärssystem");
         courseList.add("TIG163 Beslutsstödssystem");
-
+        */
         courseDateList = new ArrayList<String>();
         courseDateList.add("2016-06-03");
         courseDateList.add("2016-05-22");
