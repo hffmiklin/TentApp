@@ -328,11 +328,36 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
         return placesStrings;
     }
 
-    public List<String> getRegIntervals() {
-        Log.d("getRegIntervals() ", "Started");
-        List<Exam> regIntervals;
-        regIntervals = new ArrayList<Exam>();
-        String selectQuery = "SELECT " + KEY_REG_OPEN+ "," + KEY_REG_CLOSE + " FROM " + VIEW_EXAM_LIST;
+    public List<String> getRegOpens() {
+            Log.d("getRegOpens() ", "Started");
+            List<Exam> regOpens;
+            regOpens = new ArrayList<Exam>();
+            String selectQuery = "SELECT " + KEY_REG_OPEN + " FROM " + VIEW_EXAM_LIST;
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor c = db.rawQuery(selectQuery, null);
+
+            // looping through all rows and adding to list
+            if (c.moveToFirst()) {
+                do {
+                    Exam ex = new Exam();
+                    Log.d("creating Str RegOpen", c.getString((c.getColumnIndex(KEY_REG_OPEN))));
+                    ex.setRegOpen(c.getString(c.getColumnIndex(KEY_REG_OPEN)));
+                    regOpens.add(ex);
+                } while (c.moveToNext());
+            }
+            List<String> regOpensStrings = new ArrayList<>();
+            for (Exam ex : regOpens) {
+                regOpensStrings.add(ex != null ? ex.getRegOpen(): null);
+            }
+
+        return regOpensStrings;
+    }
+
+    public List<String> getRegCloses() {
+        Log.d("getRegCloses() ", "Started");
+        List<Exam> regCloses;
+        regCloses = new ArrayList<Exam>();
+        String selectQuery = "SELECT " + KEY_REG_CLOSE + " FROM " + VIEW_EXAM_LIST;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(selectQuery, null);
 
@@ -340,19 +365,17 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
         if (c.moveToFirst()) {
             do {
                 Exam ex = new Exam();
-                Log.d("creating Str RegOpen", c.getString((c.getColumnIndex(KEY_REG_OPEN))));
                 Log.d("creating Str RegClose", c.getString((c.getColumnIndex(KEY_REG_CLOSE))));
-                ex.setRegOpen(c.getString(c.getColumnIndex(KEY_REG_OPEN)));
                 ex.setRegClose(c.getString(c.getColumnIndex(KEY_REG_CLOSE)));
-                regIntervals.add(ex);
+                regCloses.add(ex);
             } while (c.moveToNext());
         }
-        List<String> regIntervalsStrings = new ArrayList<>();
-        for (Exam ex : regIntervals) {
-            regIntervalsStrings.add(ex != null ? ex.getRegOpen() + " - " + ex.getRegClose(): null);
+        List<String> regClosesStrings = new ArrayList<>();
+        for (Exam ex : regCloses) {
+            regClosesStrings.add(ex != null ? ex.getRegClose(): null);
         }
 
-        return regIntervalsStrings;
+        return regClosesStrings;
     }
 
     public List<String> getRegistered() {

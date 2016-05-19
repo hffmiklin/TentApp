@@ -26,8 +26,8 @@ public class ExamList extends AppCompatActivity {
     List<String> courseTimeList;
     List<String> courseAidList;
     List<String> coursePlaceList;
-    List<String> courseRegIntervalList1;
-    List<String> courseRegIntervalList2;
+    List<String> courseRegOpenList;
+    List<String> courseRegCloseList;
     List<String> courseRegYesNoList;
 
     String userNameString;
@@ -60,8 +60,11 @@ public class ExamList extends AppCompatActivity {
         coursePlaceList = new ArrayList<String>();
         coursePlaceList = helper.getPlaces();
 
-        courseRegIntervalList = new ArrayList<String>();
-        courseRegIntervalList = helper.getRegIntervals();
+        courseRegOpenList = new ArrayList<String>();
+        courseRegOpenList = helper.getRegOpens();
+
+        courseRegCloseList = new ArrayList<String>();
+        courseRegCloseList = helper.getRegCloses();
 
         courseRegYesNoList = new ArrayList<String>();
         courseRegYesNoList = helper.getRegistered();
@@ -183,8 +186,8 @@ public class ExamList extends AppCompatActivity {
                     intent.putExtra("course_time", courseTimeList.get(id));
                     intent.putExtra("course_aid", courseAidList.get(id));
                     intent.putExtra("course_place", coursePlaceList.get(id));
-                    intent.putExtra("course_reg_interval1", courseRegIntervalList1.get(id));
-                    intent.putExtra("course_reg_interval2", courseRegIntervalList2.get(id));
+                    intent.putExtra("course_reg_open", courseRegOpenList.get(id));
+                    intent.putExtra("course_reg_close", courseRegCloseList.get(id));
                     intent.putExtra("course_reg_yes_no", courseRegYesNoList.get(id));
                     startActivity(intent);
                 }
