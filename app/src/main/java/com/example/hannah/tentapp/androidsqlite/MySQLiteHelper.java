@@ -65,6 +65,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
     //Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         //create user table
         String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_USER + "("
             + KEY_PNR + " PRIMARY KEY, "
@@ -107,8 +108,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
         //Initial data
         String INITIAL_DATA_USER=
                 "INSERT INTO " + TABLE_USER + "(pnr, gul_id, first_name, last_name, password) VALUES " +
-                        "(7503228222, 'admin', 'Petter', 'Andersson', 'password123')," +
-                        "(9409153523, 'gusgrasmt', 'Smilla', 'Grandin', 'password123')";
+                        "(7503228222, 'guspetanh', 'Petter', 'Andersson', 'password123')," +
+                        "(9409153523, 'gusgrasmt', 'Smilla', 'Grandin', 'password123')," +
+                        "(0000000000, 'admin', 'admin', 'admin', 'password123')";
         db.execSQL(INITIAL_DATA_USER);
 
         String INITIAL_DATA_COURSE=
@@ -130,7 +132,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
                         "(7503228222, 1, 'Ja')," +
                         "(7503228222, 2, 'Nej')," +
                         "(9409153523, 2, 'Ja')," +
-                        "(9409153523, 3, 'Ja')";
+                        "(9409153523, 3, 'Ja')," +
+                        "(0000000000, 1, 'N/A')," +
+                        "(0000000000, 2, 'N/A')," +
+                        "(0000000000, 3, 'N/A')";
         db.execSQL(INITIAL_DATA_USER_EXAM);
 
         String INITIAL_DATA_BUILDING=
@@ -163,6 +168,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
     public void createView(String presentUser) {
         //create views
         SQLiteDatabase db = this.getWritableDatabase();
+        //db.execSQL("DROP VIEW IF EXISTS " + VIEW_EXAM_LIST);
         String CREATE_VIEW_EXAM_COURSE_LIST = "CREATE VIEW IF NOT EXISTS " + VIEW_EXAM_LIST + " AS " +
                 "SELECT " + TABLE_COURSE + "." + KEY_NR + ","
                 + TABLE_COURSE + "." + KEY_NAME + ","

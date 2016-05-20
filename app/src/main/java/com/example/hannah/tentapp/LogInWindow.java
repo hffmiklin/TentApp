@@ -40,14 +40,14 @@ public class LogInWindow extends AppCompatActivity {
                     intent.putExtra("user_name",userName);
                     startActivity(intent);
 
-                } else if (userNameField.getText().toString().equals("guspetanh") && passwordField.getText().toString().equals("hejhej23")) {
+                } else if (userNameField.getText().toString().equals("guspetanh") && passwordField.getText().toString().equals("password123")) {
 
                     String userName = String.valueOf(userNameField.getText());
                     Intent intent = new Intent(LogInWindow.this,MainMenu.class);
                     intent.putExtra("user_name",userName);
                     startActivity(intent);
 
-                } else if (userNameField.getText().toString().equals("gusgrasmt") && passwordField.getText().toString().equals("gulgu123")) {
+                } else if (userNameField.getText().toString().equals("gusgrasmt") && passwordField.getText().toString().equals("password123")) {
 
                     String userName = String.valueOf(userNameField.getText());
                     Intent intent = new Intent(LogInWindow.this,MainMenu.class);

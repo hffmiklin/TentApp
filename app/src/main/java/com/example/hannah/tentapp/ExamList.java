@@ -1,3 +1,4 @@
+
 package com.example.hannah.tentapp;
 
 import android.content.Intent;
@@ -107,14 +108,18 @@ public class ExamList extends AppCompatActivity {
             for(int j = 1; j<stringParts.length ; j++ ){
                 courseButtonText = courseButtonText +" "+ stringParts[j];
             }
-            courseButton.setText(courseButtonText);
-            courseButton.setTextSize(18);
+
             GradientDrawable drawable = new GradientDrawable();
             drawable.setShape(GradientDrawable.RECTANGLE);
-            drawable.setStroke(5, Color.WHITE);
-            drawable.setColor(Color.LTGRAY);
+            //drawable.setColor(null);
+            drawable.setStroke(10, Color.WHITE);
 
-            courseButton.setBackgroundDrawable(drawable);
+            courseButton.setText(courseButtonText);
+            courseButton.setTextSize(18);
+            courseButton.setTextColor(Color.parseColor("#ffffff"));
+            courseButton.setBackgroundColor(Color.parseColor("#fd9942"));
+
+            //courseButton.setBackgroundDrawable(drawable);
             //courseButton.setBackgroundColor(Color.rgb(253,153,66));
 
 
