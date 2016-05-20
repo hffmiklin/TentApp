@@ -1,5 +1,5 @@
 TentApp
-2016-05-19
+2016-05-20
 Interaktionsdesign/TIG164
 
 Grupp: Liberty Belle
@@ -21,7 +21,7 @@ TentApp är en applikation avsedd för Androidenheter. Applikationen syftar till
 Applikationen är utvecklad i Android Studios och installeras på en Androidenhet genom en apk-fil. En apk-fil är filformatet som används för att installera mjukvara (oftast applikationer eller spel) på Androids operativsystem.
 Apk-filen kan enbart installeras på en Androidenhet och ej på PC.
 
-Nedladdning av apk-fil (exempelvis smart phone):
+Nedladdning av apk-fil (kan variera beroende på modell):
 
 Ladda ned apk-filen
 i. Om du får upp en varning som säger att filen kan vara skadligt för enheten--> Tryck OK
@@ -30,6 +30,7 @@ i. Om enheten ger dig olika val att öppna applikationen--> Välj Installationsp
 ii. Klicka på Installera
 iii. Klicka på "Öppna applikation"
 iiii. Ett pop-up fönster kommer nu upp och frågar "Ta bort installationspaket?"--> klicka på Avbryt
+
 ///////////////////////////////////////////////////////////////////////////////////////
 
 Användarmanual TentApp
@@ -41,15 +42,19 @@ admin/admin
 
 ii. Klicka på logga in-knappen
 
-//////////////////////////////////////
+Menyfönster: fönster olika alternativ ges
 
-Menyfönster: fönster olika alternativ ges Välj Tenta:
+Välj Tenta:
 i. Välj kurs genom att klicka på tillgänglig kurs
 ii. Appen navigerar till sida med information om önskad tenta
 iii. Genom att klicka på ”Öppna karta” - visas en kartvy
+iv. Sätt på mobilens platstjänster för att kunna visa Min plats
+v. För att visa tentalokalens adress igen måste platstjänster stängas av och tryck på "Öppna karta" igen 
 
 Kartvy: ett fönster där karta visas över campus  
-i. Får upp en karta   
+i. Får upp en karta
+ii. Sätt på mobilens platstjänster
+iii. Tryck på Min plats för att kunna se var du är någonstans
 
 Notiser: ett fönster med inställningar för notiser  
 i. Tentamensanmälan öppnar  
@@ -58,19 +63,21 @@ iii. Uppdatering av information
 
 Logga ut-knapp
 i. Navigerar tillbaka till inloggningsfönstret
-//////////////////////////////////
 
 För att återgå till föregående fönster --> använd tillbaka-knappen på din enhet.
 
 /////////////////////////////////////////////////////////////////////////////////
 
-Hur applikationen är tänkt att fungera:
+Kända buggar:
 
-Applikationen är en prototyp och har vissa funktioner som inte realiserats i detta stadie i. Att aktivera notifikationer är ej realiserat, och applikationen kommer inte ihåg val man gjort.
+- När öppna karta valts från en tenta så sätts markören på tentalokalens adress endast om mobilens platsfunktion är avstängd.
+- Notifikationsinställningar sparas inte
 
-ii. Notifikationer är inte realiserat, och applikationen kommer inte skicka notifikationer alls.
+Dessa funktioner implementerades ej i prototypen:
 
-iii. Indoor mapping: Vid kartvyn ska finnas funktioner för indoor mapping, att visa kartvy över salar i byggnader på Lindholmen Campus.
+- Navigering till tentasal inomhus
+- Tentamensanmälan
+- Incheckning i tentasal
+- Notifikationer
 
---> Dessa funktioner implementerades ej i prototypen.
 ////////////////////////////////////////////////////////////////////////////////
