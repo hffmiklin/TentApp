@@ -80,3 +80,5 @@ Hur applikationen är tänkt att fungera:
 
 
 
+
+
