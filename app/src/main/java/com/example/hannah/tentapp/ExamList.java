@@ -111,15 +111,17 @@ public class ExamList extends AppCompatActivity {
 
             GradientDrawable drawable = new GradientDrawable();
             drawable.setShape(GradientDrawable.RECTANGLE);
-            //drawable.setColor(null);
             drawable.setStroke(10, Color.WHITE);
+
+            drawable.setColor(Color.parseColor("#fd9942"));
 
             courseButton.setText(courseButtonText);
             courseButton.setTextSize(18);
             courseButton.setTextColor(Color.parseColor("#ffffff"));
-            courseButton.setBackgroundColor(Color.parseColor("#fd9942"));
 
-            //courseButton.setBackgroundDrawable(drawable);
+
+            courseButton.setBackgroundDrawable(drawable);
+            //courseButton.setBackgroundColor(Color.parseColor("#fd9942"));
             //courseButton.setBackgroundColor(Color.rgb(253,153,66));
 
 
