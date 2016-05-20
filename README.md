@@ -71,10 +71,17 @@ För att återgå till föregående fönster --> använd tillbaka-knappen på di
    
 Hur applikationen är tänkt att fungera:  
 
+
 Applikationen är en prototyp och har vissa funktioner som inte realiserats i detta stadie
 i. Att aktivera notifikationer är ej realiserat, och applikationen kommer inte ihåg val man gjort.
+
+
 ii. Notifikationer är inte realiserat, och applikationen kommer inte skicka notifikationer alls. 
-iii. Indoor mapping: Vid kartvyn ska finnas funktioner för indoor mapping, att visa kartvy över salar i byggnader på Lindholmen Campus.     
+
+
+iii. Indoor mapping: Vid kartvyn ska finnas funktioner för indoor mapping, att visa kartvy över salar i byggnader på Lindholmen Campus.
+
+
 --> Dessa funktioner implementerades ej i prototypen.  
 ////////////////////////////////////////////////////////////////////////////////  
 
