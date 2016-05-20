@@ -133,9 +133,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
                         "(7503228222, 2, 'Nej')," +
                         "(9409153523, 2, 'Ja')," +
                         "(9409153523, 3, 'Ja')," +
-                        "(0000000000, 1, 'N/A')," +
-                        "(0000000000, 2, 'N/A')," +
-                        "(0000000000, 3, 'N/A')";
+                        "(0000000000, 1, 'Ja')," +
+                        "(0000000000, 2, 'Nej')," +
+                        "(0000000000, 3, 'Ja')";
         db.execSQL(INITIAL_DATA_USER_EXAM);
 
         String INITIAL_DATA_BUILDING=
