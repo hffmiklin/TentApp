@@ -39,9 +39,8 @@ Användarmanual TentApp
 Logga in-fönster:  
   i. Logga in med användarnamn med tillhörande lösenord:  
 	Användarnamn/Lösenord:  
-	admin/admin  
-	guspetanh/hejhej23  
-	gusgrasmt/gulgu123  
+	admin/admin 
+
   ii. Klicka på logga in-knappen 
   
 //////////////////////////////////////  
@@ -70,12 +69,21 @@ För att återgå till föregående fönster --> använd tillbaka-knappen på di
 /////////////////////////////////////////////////////////////////////////////////  
    
 Hur applikationen är tänkt att fungera:  
-   
->Notiser: Användaren ska kunna få notiser om när tentamensanmälan öppnar samt när den stänger.  
-	  Användaren kan även få notis om när tentamensinformation uppdateras. Exempel är när lokal har fastställts.  
->Indoor mapping: Vid kartvyn var det tänkt att finnas funktioner för indoor mapping, att visa kartvy över salar i byggnader på Lindholmen Campus.     
+
+
+Applikationen är en prototyp och har vissa funktioner som inte realiserats i detta stadie
+i. Att aktivera notifikationer är ej realiserat, och applikationen kommer inte ihåg val man gjort.
+
+
+ii. Notifikationer är inte realiserat, och applikationen kommer inte skicka notifikationer alls. 
+
+
+iii. Indoor mapping: Vid kartvyn ska finnas funktioner för indoor mapping, att visa kartvy över salar i byggnader på Lindholmen Campus.
+
+
 --> Dessa funktioner implementerades ej i prototypen.  
 ////////////////////////////////////////////////////////////////////////////////  
+
   
 
 
