@@ -40,6 +40,7 @@ Logga in-fönster:
   i. Logga in med användarnamn med tillhörande lösenord:  
 	Användarnamn/Lösenord:  
 	admin/admin 
+
   ii. Klicka på logga in-knappen 
   
 //////////////////////////////////////  
