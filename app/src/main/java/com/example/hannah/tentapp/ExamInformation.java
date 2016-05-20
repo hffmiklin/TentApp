@@ -3,19 +3,27 @@ package com.example.hannah.tentapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.graphics.Typeface;
 
+import com.example.hannah.tentapp.androidsqlite.MySQLiteHelper;
+
 public class ExamInformation extends AppCompatActivity {
 
-    TextView courseName, courseDate, courseTime, courseAid, coursePlace, courseRegOpen, courseRegClose, courseRegYN;
+    MySQLiteHelper helper;
+
+    TextView courseName, courseDate, courseTime, courseAid, coursePlace, courseBuilding, courseRegOpen, courseRegClose, courseRegYN;
+
+    String buildingAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam_information);
 
+        helper = new MySQLiteHelper(getApplicationContext());
 
         courseName = (TextView) findViewById(R.id.courseNameTextView);
         courseDate = (TextView) findViewById(R.id.dateTextView);
@@ -36,6 +44,9 @@ public class ExamInformation extends AppCompatActivity {
         String courseRegOpenString = extras.getString("course_reg_open");
         String courseRegCloseString = extras.getString("course_reg_close");
         String courseRegYesNoString = extras.getString("course_reg_yes_no");
+
+        String courseBuildingString = extras.getString("course_building");
+        Log.d("courseBuildingString", courseBuildingString);
 
 
         //rader nedan formaterat strängar för tentainfon
@@ -62,22 +73,15 @@ public class ExamInformation extends AppCompatActivity {
         courseRegYN.setTypeface(Typeface.MONOSPACE);
         courseRegYN.setText(String.format("%-16s" + courseRegYesNoString, "Anmäld: "));
 
-
-        // TODO import list of elements of chosen exam, connect with db
-
-        // datum
-        // tidstart + slut
-        // hjälpmedel
-        // sal, hus (om finns)
-        // anmälningsintervall
-        //anmäld eller inte
-        // knapp: hitta hus+sal
-
-
+        //Skicka vidare adress till karta
+        buildingAddress = helper.getExamAddress(courseBuildingString);
 
     }
 
     public void openMap(View view) {
-        startActivity(new Intent(ExamInformation.this, MapsActivity.class));
+        Intent intent = new Intent(ExamInformation.this, MapsActivity.class);
+        intent.putExtra("buildingAddress", buildingAddress);
+        startActivity(intent);
+
     }
 }

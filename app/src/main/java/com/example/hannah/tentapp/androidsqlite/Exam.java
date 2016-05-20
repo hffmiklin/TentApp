@@ -99,6 +99,9 @@ public class Exam {
     public void setRegistered(String registered){
         this._registered = registered;
     }
+    public void setAddress(String address) {
+        this._address = address;
+    }
 
     // getters
     public String getCourseNr() {
@@ -133,5 +136,8 @@ public class Exam {
     }
     public String getRegistered() {
         return this._registered;
+    }
+    public String getAddress() {
+        return this._address;
     }
 }

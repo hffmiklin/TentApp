@@ -402,4 +402,47 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 
         return registeredStrings;
     }
+
+    public List<String> getBuildings(){
+        Log.d("getBuildings() ", "Started");
+        List<Exam> buildings;
+        buildings = new ArrayList<Exam>();
+        String selectQuery = "SELECT " + KEY_BUILDING + " FROM " + VIEW_EXAM_LIST;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Exam ex = new Exam();
+                Log.d("creating Str Buildings", c.getString(c.getColumnIndex(KEY_BUILDING)));
+                ex.setBuilding(c.getString(c.getColumnIndex(KEY_BUILDING)));
+                buildings.add(ex);
+            } while (c.moveToNext());
+        }
+        List<String> buildingStrings = new ArrayList<>();
+        for (Exam ex :  buildings) {
+            buildingStrings.add(ex != null ? ex.getBuilding(): null);
+            Log.d("getBuilding returns", ex.getBuilding());
+        }
+
+        return buildingStrings;
+    }
+
+    public String getExamAddress(String building_name) {
+        Exam ex = new Exam();
+        String selectQuery = "SELECT " + KEY_ADDRESS + " FROM " + VIEW_EXAM_LIST +
+                " INNER JOIN " + TABLE_BUILDING +
+                " ON " + VIEW_EXAM_LIST + "." + KEY_BUILDING + "=" + TABLE_BUILDING + "." + KEY_NAME +
+                " WHERE " + TABLE_BUILDING + "." + KEY_NAME + "=" + "'" + building_name + "'";
+        Log.d("selectQuery", selectQuery);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+        c.moveToFirst();
+        ex.setAddress(c.getString(c.getColumnIndex(KEY_ADDRESS)));
+        Log.d("output query", c.getString(c.getColumnIndex(KEY_ADDRESS)));
+        String addressString = ex.getAddress();
+
+        return addressString;
+    }
 }

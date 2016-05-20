@@ -69,12 +69,41 @@ public class MapsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Bundle extras = getIntent().getExtras();
+
+        String addressString = extras.getString("buildingAddress");
+
         if (servicesOK()) {
             setContentView(R.layout.activity_maps);
 
             if (initMap()) {
                 Toast.makeText(this, "Bygger karta", Toast.LENGTH_SHORT).show();
-                goToLocation(FORSKNINGSGANGEN_LAT, FORSKNINGSGANGEN_LNG, 15);
+                //test put marker automatically with address from building
+                String location = addressString;
+                List<Address> addressList = null;
+                if (!(location == null || location.equals(""))) {
+                    Geocoder geocoder = new Geocoder(this);
+                    try {
+                        addressList = geocoder.getFromLocationName(location, 1);
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    if (addressList.size() > 0){
+                        Address address = addressList.get(0);
+                        LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                        mMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+
+                        InputMethodManager inputMgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                        EditText editText = (EditText) findViewById(R.id.TFaddress);
+                        inputMgr.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+                    }
+                }
+                //end test
+
+                //removed for test
+                //goToLocation(FORSKNINGSGANGEN_LAT, FORSKNINGSGANGEN_LNG, 15);
 
 
                 mLocationClient = new GoogleApiClient.Builder(this)
