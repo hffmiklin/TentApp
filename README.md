@@ -39,9 +39,7 @@ Användarmanual TentApp
 Logga in-fönster:  
   i. Logga in med användarnamn med tillhörande lösenord:  
 	Användarnamn/Lösenord:  
-	admin/admin  
-	guspetanh/hejhej23  
-	gusgrasmt/gulgu123  
+	admin/admin 
   ii. Klicka på logga in-knappen 
   
 //////////////////////////////////////  
