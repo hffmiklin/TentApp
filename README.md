@@ -44,13 +44,12 @@ Logga in-fönster:
 	gusgrasmt/gulgu123  
   ii. Klicka på logga in-knappen 
   
-//////////////////////////////////////  
-  
-Menyfönster: fönster olika alternativ ges
+    
+Menyfönster: fönster olika alternativ ges  
     Välj Tenta:  
     i. Välj kurs genom att klicka på tillgänglig kurs  
-    ii. Appen navigerar till sida med information om önskad tenta     
-    iii. Genom att klicka på ”Öppna karta” - visas en kartvy    
+    ii. Appen navigerar till sida med information om önskad tenta, välj tenta       
+    iii. Information om tenta visas. Genom att klicka på ”Öppna karta” visas en kartvy  
   
     Kartvy: ett fönster där karta visas över campus  
     i. Får upp en karta   
@@ -75,6 +74,7 @@ Hur applikationen är tänkt att fungera:
 	  Användaren kan även få notis om när tentamensinformation uppdateras. Exempel är när lokal har fastställts.  
 >Indoor mapping: Vid kartvyn var det tänkt att finnas funktioner för indoor mapping, att visa kartvy över salar i byggnader på Lindholmen Campus.     
 --> Dessa funktioner implementerades ej i prototypen.  
+  
 ////////////////////////////////////////////////////////////////////////////////  
   
 
