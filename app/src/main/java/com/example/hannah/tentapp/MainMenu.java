@@ -61,11 +61,10 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Toast.makeText(getApplicationContext(), "Visar kartvyer",Toast.LENGTH_SHORT).show();
-                //TO DO Kartvy är till tillfällig skärm, ska navigeras till riktiga maps
-                startActivity(new Intent(MainMenu.this, MapsActivity.class));
-            }
+                startActivity(new Intent(MainMenu.this, MapsSearchActivity.class));
+    }
 
-        });
+});
 
         //klickar på inställning-knappen, navigerar till inställning
         install.setOnClickListener(new View.OnClickListener() {

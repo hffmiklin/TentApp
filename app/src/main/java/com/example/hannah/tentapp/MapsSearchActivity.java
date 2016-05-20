@@ -48,13 +48,16 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.io.IOException;
 import java.util.List;
 
-public class MapsActivity extends AppCompatActivity
+public class MapsSearchActivity extends AppCompatActivity
         implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
 
     private static final int ERROR_DIALOG_REQUEST = 9001;
     private GoogleMap mMap;
+    private static final double
+            FORSKNINGSGANGEN_LAT = 57.706176,
+            FORSKNINGSGANGEN_LNG = 11.936952;
 
     private GoogleApiClient mLocationClient;
     private com.google.android.gms.location.LocationListener mListener;
@@ -66,41 +69,12 @@ public class MapsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Bundle extras = getIntent().getExtras();
-
-        String addressString = extras.getString("buildingAddress");
-
         if (servicesOK()) {
             setContentView(R.layout.activity_maps);
 
             if (initMap()) {
                 Toast.makeText(this, "Bygger karta", Toast.LENGTH_SHORT).show();
-                //test put marker automatically with address from building
-                String location = addressString;
-                List<Address> addressList = null;
-                if (!(location == null || location.equals(""))) {
-                    Geocoder geocoder = new Geocoder(this);
-                    try {
-                        addressList = geocoder.getFromLocationName(location, 1);
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    if (addressList.size() > 0){
-                        Address address = addressList.get(0);
-                        LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-                        mMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
-
-                        InputMethodManager inputMgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                        EditText editText = (EditText) findViewById(R.id.TFaddress);
-                        inputMgr.hideSoftInputFromWindow(editText.getWindowToken(), 0);
-                    }
-                }
-                //end test
-
-                //removed for test
-                //goToLocation(FORSKNINGSGANGEN_LAT, FORSKNINGSGANGEN_LNG, 15);
+                goToLocation(FORSKNINGSGANGEN_LAT, FORSKNINGSGANGEN_LNG, 15);
 
 
                 mLocationClient = new GoogleApiClient.Builder(this)
@@ -282,7 +256,7 @@ public class MapsActivity extends AppCompatActivity
         {
             @Override
             public void onLocationChanged(Location location) {
-                Toast.makeText(MapsActivity.this,
+                Toast.makeText(MapsSearchActivity.this,
                         "Plats ändrad: " + location.getLatitude() + " , "
                                 + location.getLongitude(), Toast.LENGTH_SHORT).show();
 
@@ -302,7 +276,7 @@ public class MapsActivity extends AppCompatActivity
         LocationServices.FusedLocationApi.requestLocationUpdates(
                 mLocationClient, request, mListener
         );
-        }
+    }
 
     @Override
     public void onConnectionSuspended(int i) {
@@ -321,6 +295,4 @@ public class MapsActivity extends AppCompatActivity
                 mLocationClient, mListener
         );
     }
-
-
 }
